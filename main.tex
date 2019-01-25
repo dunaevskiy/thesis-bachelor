@@ -1,0 +1,121 @@
+% arara: xelatex: { shell: yes }
+% arara: makeglossaries
+% arara: biber
+% arara: xelatex: { shell: yes }
+% arara: xelatex: { shell: yes }
+
+\documentclass[thesis=B,czech,hidelinks]{dependencies/Thesis}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{dirtree}
+\usepackage{xevlna}
+\usepackage{pdfpages}
+\usepackage{xcolor} 
+\usepackage{blindtext}
+\usepackage{enumitem}
+% \usepackage{amsmath} %advanced maths
+% \usepackage{amssymb} %additional math symbols
+
+% Code
+\usepackage{minted}
+\usemintedstyle{bodland}
+
+% Citations
+\usepackage[
+   backend=biber
+  ,style=iso-numeric
+  ,sorting=nyt
+  ,autolang=other
+  ,sortlocale=cs_CZ
+  ,spacecolon=false
+]{biblatex}
+\addbibresource{lib/citations.bib}
+
+% Fonts
+\usepackage{fontspec}
+\setmonofont[Scale=MatchLowercase]{Fira Code}
+\setmainfont[Scale=MatchLowercase]{Lora}
+
+% Captions
+\usepackage[labelfont={bf},textfont={}]{caption}
+% \DeclareCaptionType{code}[Zdrojový kód][Seznam zdrojových kódů]
+
+% Figures above footnotes
+\feetbelowfloat
+
+% Glossary
+\makeglossaries
+\input{tmp/acronyms.tex}
+\glsaddall
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Commands
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{lib/commands.tex}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{lib/meta.tex}
+\begin{document}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Figures
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\figurename}{Obrázek}
+
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+\renewcommand{\tablename}{Tabulka}
+
+\renewcommand{\thelisting}{\arabic{chapter}.\arabic{listing}}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Text
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{introduction}
+   \input{src/common/uvod.tex}
+\end{introduction}
+
+
+\input{src/lorem-ipsum.tex}
+\input{src/cil-prace.tex}
+
+
+\begin{conclusion}
+   \input{src/common/zaver.tex}
+\end{conclusion}
+
+\begin{literature}
+   \printbibliography[heading=none]
+\end{literature}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\chapter{Seznam použitých zkratek}
+\printglossary[type=\acronymtype,style=acronyms]
+
+\chapter{Obsah přiloženého CD}
+\input{src/common/obsah-prilozeneho-cd.tex}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document End
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

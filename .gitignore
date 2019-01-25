@@ -1,0 +1,7 @@
+/_minted-main
+
+/main.*
+!/main.tex
+
+/tmp/*.tex
+!.gitkeep

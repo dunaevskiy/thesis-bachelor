@@ -1,0 +1,129 @@
+\chapter{Lorem ipsum}
+\section{Section}
+
+\begin{tocheck}
+	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+	
+	Look at \ref{listing:example1} sociisonec quam felis, ultricies nec, pellentesque eu, pretium quis, sem\footnote{Lorem ipsum dolor.}. Nulla consequat massa quis\footnote{Donec quam felis.} enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+\end{tocheck}
+
+\todo{Temporary todo task.}
+	
+
+\begin{fig:code}
+	\begin{minted}{javascript}
+// Dependencies
+require('Styles/index.scss');
+const Application = require('Core/Application.class');
+// Application
+global.app = new Application();
+app.init(x <= 5);
+app.getRouter().refresh();
+	\end{minted}
+	\caption[První příklad zdrojového kódu]{Dlouhý popis zdrojového kódu}\label{listing:example1}
+\end{fig:code}
+
+
+
+\subsection{Subsection}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturients mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis \ref{listing:example2}:
+
+\begin{description}
+	\setlength{\itemsep}{0.2em}
+	\setlength{\parskip}{0.2em}
+	\item[NEC] natoque penatibus,
+	\item[Venenatis] enim justo rhoncus.
+\end{description}
+
+Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis.
+
+
+\begin{fig:code}
+	\begin{minted}{javascript}
+var fruits = ["Banana", "Orange", "Apple"];
+document.getElementById("root").innerHTML = fruits.join(" ");
+   \end{minted}
+   \caption[Druhý příklad zdrojového kódu]{Dlouhý popis zdrojového kódu}\label{listing:example2}
+\end{fig:code}
+
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet:
+\begin{ol}
+	\item Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec nec, pellentesque eu, pretium quis, sem.Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+	
+	Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec nec, pellentesque eu, pretium quis, sem:
+	
+	\begin{ul}
+		\item 
+			In enim justo, rhoncus ut imperdiet a venenatis.
+
+			Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec nec, pellentesque eu, pretium quis, sem.Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+		\item aenean massa sociis natoque.
+	\end{ul}
+	\item Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec nec, pellentesque eu, pretium quis, sem:
+	\item Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec nec, pellentesque eu, pretium quis, sem:
+\end{ol}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+\begin{ul}
+	\item in enim justo, rhoncus ut imperdiet a venenatis,
+	\item aenean massa sociis natoque.
+\end{ul}
+
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, \({5} \over {4}\) pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis.
+
+\[ \int {\gamma^n + y^n } dx = { 5 \over 8} \]
+
+
+\begin{fig:table}
+   \begin{tabular}{| l c r |}
+      \hline
+      1 & 2 & 3 \\
+      4 & 5 & 6 \\
+      7 & 8 & 9 \\
+      \hline
+   \end{tabular}
+   \caption{Ukázka }\label{tab:example1}
+\end{fig:table}
+
+\section{Section Simple}
+Lorem ipsum \verb|dolor| sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis.
+
+
+\begin{fig:illustration}
+	\includegraphics[width=0.5\textwidth, angle=30]{dependencies/CVUTLogo}
+	\caption[První příklad obrázku]{Ukázkový obrázek v~plovoucím prostředí}\label{pic:example1}
+\end{fig:illustration}
+
+
+% ONLY CZECH \uv{uvozovky} 
+Lorem ipsum \verb|dolor| sit amet, uvozovky adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cnis dis -- parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu. In enim justo, rhoncus ut, imperdiet a, venenatis.
+
+
+\begin{fig:illustration}
+	\includegraphics[width=0.5\textwidth]{dependencies/CVUTLogo}
+	\caption[Druhý příklad obrázku]{Ukázkový obrázek v~plovoucím prostředí}\label{pic:example2}
+\end{fig:illustration}
+
+\begin{fig:table}
+	\begin{tabular}{|l|l|c|c|}\hline
+		Typ		& Prostředí		& \LaTeX{}ovská zkratka	& \TeX{}ovská zkratka	\tabularnewline \hline \hline
+		Text		& \verb|math|		& \verb|\(...\)|	& \verb|$...$|		\tabularnewline \hline
+		Displayed	& \verb|displaymath|	& \verb|\[...\]|	& \verb|$$...$$|	\tabularnewline \hline
+	\end{tabular}
+	\caption[První příklad tabulky]{Dlouhý popis tabulky}\label{tab:example2}
+\end{fig:table}
+
+\chapter{Lorem ipsum second}
+
+Lorem ipsum \verb|dolor| sit amet, uvozovky adipiscing elit. Aenean -- commodo ligula eget dolor. Aenean \gls{gui} massa. Cum \gls{gui} sociis natoque penatibus et magnis~\cite{wombat2016} dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque~\cite{lion2010} eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis in~\cite{wikibook}.
+
+\begin{fig:code}
+	\begin{minted}{javascript}
+// Application
+global.app = new Application();
+	\end{minted}
+	\caption[Třetí příklad zdrojového kódu]{Dlouhý popis zdrojového kódu}\label{listing:example3}
+\end{fig:code}
+
+\lipsum[1]
