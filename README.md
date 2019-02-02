@@ -33,3 +33,10 @@ tlmgr install enumitem
 ### Font
 - [Lora](https://fonts.google.com/specimen/Lora) – text
 - [FiraCode](https://github.com/tonsky/FiraCode) – code
+
+## Build
+
+```
+make        # build thesis
+make clean  # clean repository
+```
