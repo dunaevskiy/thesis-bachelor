@@ -3,22 +3,32 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \definecolor{todo}{HTML}{e74c3c}
+\definecolor{dia}{HTML}{f1c40f}
 \definecolor{tocheck}{HTML}{95a5a6}
 
 \newcommand{\todo}[1]{\textcolor{todo}{\textbf{(TODO) #1}}}				% TODO task
+\newcommand{\dia}[1]{\textcolor{dia}{\textbf{(DIAGRAM) #1}}}			% TODO task
 \newenvironment{tocheck}{\par\color{tocheck}}{\par}						% ToCheck part (light gray text)
 \newcommand{\lipsum}[1][1]{\textcolor{tocheck}{\Blindtext[#1][1]}}	% Lipsum generator (light gray random text)
 
 \newenvironment{ul}{
-   \begin{itemize}[topsep=0.5em,itemsep=0em,parsep=1em,partopsep=0em]
+   \begin{itemize}[topsep=0em,itemsep=0em,parsep=0.5em,partopsep=0em]
    }{ 
    \end{itemize}                  
 } 
 
 \newenvironment{ol}{
-   \begin{enumerate}[topsep=0.5em,itemsep=0em,parsep=1em,partopsep=0em]
+   \begin{enumerate}[topsep=0em,itemsep=0em,parsep=0.5em,partopsep=0em]
    }{ 
    \end{enumerate}                  
+} 
+
+\newenvironment{dl}{
+   \begin{description}
+      \setlength{\itemsep}{0.2em}
+      \setlength{\parskip}{0.2em}
+   }{ 
+   \end{description}                
 } 
 
 
