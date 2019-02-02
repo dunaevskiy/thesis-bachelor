@@ -74,7 +74,13 @@
 \RequirePackage{lmodern}
 
 
+% Listings
 \RequirePackage{listings}
+
+\AtBeginDocument{\counterwithin{listing}{chapter}}
+\let\Chapter\chapter
+\def\chapter{\addtocontents{lol}{\protect\addvspace{10pt}}\Chapter}
+
 
 \setlrmargins{4cm}{*}{*}\checkandfixthelayout
 
@@ -101,21 +107,22 @@
 \RequirePackage [parfill] {parskip}
 
 
-% support for acronyms
+% Support for acronyms
 \RequirePackage [nopostdot,acronym,nonumberlist,sort=def] {glossaries}
 
-% define new glossary style for list of acronyms
+% Define new glossary style for list of acronyms
 \newglossarystyle {acronyms} {%
    \glossarystyle {long}  % style that uses longtable
    \renewcommand {\glossarysection}[2][] {}  % disable header
    \renewcommand {\glsgroupskip} {}  % disable grouping
 
-% renew the entry field to make the entries bold
+   % Renew the entry field to make the entries bold
    \renewcommand* {\glossaryentryfield}[5] {%
       \bfseries\glsentryitem{##1}\glstarget{##1}{##2} & ##3\glspostdescription\space ##5%
       \tabularnewline
    }
 }
+
 
 
 

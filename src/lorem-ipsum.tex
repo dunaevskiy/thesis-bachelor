@@ -83,7 +83,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula 
       7 & 8 & 9 \\
       \hline
    \end{tabular}
-   \caption{Ukázka }\label{tab:example1}
+   \caption[První příklad tabulky]{Ukázka}\label{tab:example1}
 \end{fig:table}
 
 \section{Section Simple}
@@ -111,7 +111,7 @@ Lorem ipsum \verb|dolor| sit amet, uvozovky adipiscing elit. Aenean commodo ligu
 		Text		& \verb|math|		& \verb|\(...\)|	& \verb|$...$|		\tabularnewline \hline
 		Displayed	& \verb|displaymath|	& \verb|\[...\]|	& \verb|$$...$$|	\tabularnewline \hline
 	\end{tabular}
-	\caption[První příklad tabulky]{Dlouhý popis tabulky}\label{tab:example2}
+	\caption[Druhý příklad tabulky]{Dlouhý popis tabulky}\label{tab:example2}
 \end{fig:table}
 
 \chapter{Lorem ipsum second}
@@ -127,3 +127,20 @@ global.app = new Application();
 \end{fig:code}
 
 \lipsum[1]
+
+
+\begin{fig:illustration}
+	\includegraphics[width=0.5\textwidth]{dependencies/CVUTLogo}
+	\caption[Třetí příklad obrázku]{Ukázkový obrázek v~plovoucím prostředí}\label{pic:example3}
+\end{fig:illustration}
+
+
+\begin{fig:table}
+   \begin{tabular}{| l c r |}
+      \hline
+      1 & 2 & 3 \\
+      4 & 5 & 6 \\
+      \hline
+   \end{tabular}
+   \caption[Třetí příklad tabulky]{Ukázka}\label{tab:example3}
+\end{fig:table}
