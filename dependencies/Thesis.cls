@@ -123,6 +123,8 @@
    }
 }
 
+% Acromym style
+\renewcommand{\acrfullformat}[2]{#2\space(#1)}
 
 
 
