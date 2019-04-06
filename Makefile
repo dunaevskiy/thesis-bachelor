@@ -1,4 +1,4 @@
-all: temp thesis
+all: thesis
 
 thesis: temp
 	arara main.tex
@@ -8,3 +8,9 @@ temp:
 
 clean:
 	git clean -Xdf
+
+fast:
+	xelatex -shell-escape main.tex
+
+convertimg:
+	sh ./bin/convert_images.sh
