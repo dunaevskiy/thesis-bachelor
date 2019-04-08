@@ -140,13 +140,6 @@
 % Introduction part
 \newenvironment {introduction} {
 	\setsecnumdepth{part}
-	\if@langczech
-		\chapter{Úvod}
-	\else\if@langslovak
-		\chapter{Úvod}
-	\else
-		\chapter{Introduction}
-	\fi\fi
 }{
 	\setsecnumdepth {subsubsection}
 }
@@ -154,13 +147,7 @@
 % Conclusion part
 \newenvironment {conclusion} {
 	\setsecnumdepth {part}
-	\if@langczech
-		\chapter{Závěr}
-	\else\if@langslovak
-		\chapter{Záver}
-	\else
-		\chapter{Conclusion} 
-	\fi\fi
+   \chapter{Závěr}
 }{
 	\setsecnumdepth {subsubsection}
 }
@@ -168,13 +155,7 @@
 % Literature part
 \newenvironment{literature}{
 	\setsecnumdepth{part}
-	\if@langczech
-		\chapter{Literatura}
-	\else\if@langslovak
-		\chapter{Zoznam použitej literatúry}
-	\else
-		\chapter{Bibliography} 
-	\fi\fi
+   \chapter{Literatura}
 }{
 	\setsecnumdepth{subsubsection}
 }
@@ -338,7 +319,7 @@
 	\ifx4#1 \DeclareRobustCommand{\thedeclarationofauthenticity}{
 		% Otevřená licence
 		\if@langczech{
-			Prohlašuji, že jsem předloženou práci vypracoval(a) samostatně a že jsem uvedl(a) veškeré použité informační zdroje v~souladu s~Metodickým pokynem o~etické přípravě vysokoškolských závěrečných prací.
+			Prohlašuji, že jsem předloženou práci vypracoval samostatně a že jsem uvedl veškeré použité informační zdroje v~souladu s~Metodickým pokynem o~etické přípravě vysokoškolských závěrečných prací.
 
 			Beru na vědomí, že se na moji práci vztahují práva a povinnosti vyplývající ze zákona č.~121/2000~Sb., autorského zákona, ve znění pozdějších předpisů. V~souladu s~ust. §~46 odst.~6 tohoto zákona tímto uděluji nevýhradní oprávnění (licenci) k~užití této mojí práce, a to včetně všech počítačových programů, jež jsou její součástí či přílohou, a veškeré jejich dokumentace (dále souhrnně jen \uv{Dílo}), a to všem osobám, které si přejí Dílo užít. Tyto osoby jsou oprávněny Dílo užít jakýmkoli způsobem, který nesnižuje hodnotu Díla, a za jakýmkoli účelem (včetně užití k~výdělečným účelům). Toto oprávnění je časově, teritoriálně i~množstevně neomezené. Každá osoba, která využije výše uvedenou licenci, se však zavazuje udělit ke každému dílu, které vznikne (byť jen zčásti) na základě Díla, úpravou Díla, spojením Díla s~jiným dílem, zařazením Díla do díla souborného či zpracováním Díla (včetně překladu), licenci alespoň ve výše uvedeném rozsahu a zároveň zpřístupnit zdrojový kód takového díla alespoň srovnatelným způsobem a ve srovnatelném rozsahu, jako je zpřístupněn zdrojový kód Díla.
 

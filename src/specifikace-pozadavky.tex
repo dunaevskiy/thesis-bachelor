@@ -1,0 +1,115 @@
+\section{Požadavky na systém}
+
+Pro definování rozsahu práce slouží funkční a obecné požadavky. Funkční požadavky zachycují jednotlivé funkcionality vytvářené aplikace, jejich logickou stránku a chování. Obecné požadavky, neboli nefunkční, jsou požadavky, jenž na systém kladou jistá omezení a tím upřesňují rozsah práce, avšak nedefinují žádnou aktivní složku (například uživatelská funkcionalita nebo serverová činnost). 
+
+
+\subsection{Funkční požadavky}
+
+\begin{dl}
+   \item[FR00 Identita uživatelů]
+   Součástí aplikace je uživatelský systém vyjma autorizačního serveru. Aplikace využívá pouze autorizační servery třetích stran, s jejich pomocí probíhá registrace i přihlášení. Identitu uživatele musí být možné přesně určit na všech webových stránkách, kromě skupiny stránek sloužící pro autentizaci či informování o základních náležitostech (například podmínky užití).
+
+   \item[FR01 Globální role]
+   Vsechny účastníci \gls{is} mají přidělenou jednu globální roli, která určuje jejich oprávnění v rámci aplikace. Ihned po registraci dostávají výchozí roli standardního uživatele. Existuje speciální role administrátor, jenž má neomezený přístup. Další role představují jiné množiny oprávnění, které jsou definovány v případech užití. U jednotlivých globálních rolí lze nastavit kritérium důvěryhodnosti. Uživatelé s danou rolí jsou v \gls{is} uvedeny se speciálním označením vedle uživatelského jména. Aplikace umožňuje měnit roli uživatele, přidávat nové role a měnit oprávnění.
+
+   \item[FR02 Osobní informace uživatelů]
+   Aplikace umožňuje účastníkům \gls{is} prohlížet si svoje osobní informace, které jsou uchovávány na serveru. Existuje funkcionalita pro odstranění bez možnosti obnovení (v případě nutnosti zachování určitých činností budou dané činnosti zanonymizovány).
+
+   \item[FR03 Upozornění]
+   Aplikace posílá účastníkům \gls{is} upozornění po každé významné činnosti (například ohodnocení práce, archivace projektu\dots{}), jenž se jich přímo týká. Upozornění existují pouze v rámci \gls{is} a představují jednoduchou textovou zprávu. Účastníci mají možnost zobrazit svoje upozornění a označit je jako přečtené/nepřečtené nebo úplně odstranit.
+
+   \item[FR04 Projekt -- Životní cyklus]
+   Aplikace umožňuje účastníkům \gls{is} zakládat vlastní projekty, ve kterých se automaticky stávají vedoucími. Po založení je možné vytvořit tým, definovat cíle a začít tvořit obsah. V případě neaktuálnosti projektu se dá odstranit, tím zcela zanikne, nebo archivovat, pak existuje možnost ho kdykoliv obnovit. Archivací se zakáže veškerá činnost uživatelů na daném projektu kromě rušení archivace a odchodu uživatelů z projektového týmu.
+
+   \item[FR05 Projekt -- Správa dat]
+   Každý projekt je definován množinou dat, jenž ho popisují a prezentují. Data se dělí na vždy veřejné, skryté a volitelně skryté. Mezi veřejné patří: 
+
+   \begin{ulnar}
+      \item kategorie,
+      \item název,
+      \item datum založení,
+      \item veřejný popis,
+      \item seznam členů projektového týmu,
+      \item tagy,
+      \item status archivace.
+   \end{ulnar}
+
+
+   Skryté (dostupné pouze pro členy) jsou: 
+
+   \begin{ulnar}
+      \item seznam iterací a úkolů, 
+      \item interní popis projektu, 
+      \item snapshoty iterací a jejich hodnocení.
+   \end{ulnar}
+   
+
+   Za volitelně skryté se považují vakantní pozice a samotný obsah.
+
+   \item[FR06 Projekt -- Kategorie a tagy]
+   Aplikace umožňuje třídění projektů do jednotlivých skupin s pomocí kategorií a tagů. Každý založený projekt povinně patří právě do jedné kategorie, která určuje jeho primární zaměření. Kategorie lze zakládat, upravovat a odstraňovat, pokud jsou prázdné. V případě nutnosti přesnější specifikace projektu je možné použít tagy, které budou primárně sloužit jako prostředek pro vyhledávání.
+
+   \item[FR07 Projekt -- Tým a role]
+   Na tvorbě obsahu projektu se podílí uživatelé s příslušným oprávněním. Pro přiřazování oprávnění slouží projektové role. Dle logického hlediska se dají rozdělit pouze na tři typy -- vedoucí, spolupracovník a návštěvník.
+
+   \newpage
+   Vedoucí mají neomezený přístup z hlediska práv. Prvním vedoucím projektu se vždy stává uživatel, jenž daný projekt založil. Každý vedoucí může prohlásit jiného člena týmu za vedoucího. Odejít z této role však lze pouze v případě, že v projektu zůstane alespoň jeden vedoucí.
+
+   Pravým opakem vedoucích jsou návštěvníci, kteří mají právo pouze prohlížet obsah, nikoliv do něj zasahovat. Volné přihlašování na roli návštěvníka lze zakázat, či povolit.
+
+   Speciálním typem role je spolupracovník, který slouží pouze jako nadskupina pro množinu kapacitně omezených pracovních míst. Pracovní místa jsou definovány vedoucím pro inzerci náboru členů týmu. V případě, že je otevřené přihlašování, běžní uživatelé se mohou dobrovolně hlásit na vakantní pozice. Pokud vedoucí má status důvěryhodného uživatele, tak může přidat člena týmu i bez jeho souhlasu.
+
+   \item[FR08 Projekt -- Vyhledávání]
+   Aplikace umožňuje uživatelům vyhledávat existující projekty podle zadaných kritérií, pokud vedoucí projektu povolil jeho vyhledávání. Mezi filtry pro vyhledávání patří: 
+
+   \begin{ulnar}
+      \item stav archivace, 
+      \item projekty, ve kterých je aktuální uživatel vedoucím, 
+      \item projekty, do kterých má aktuální uživatel přístup, 
+      \item dle kategorie, 
+      \item dle tagů.
+   \end{ulnar}
+   
+
+   \item[FR09 Projekt -- Iterace a úkoly]
+   Aplikace umožňuje definovat plánovaný průběh projektu v podobě iterací a úkolů. Iterace je dlouhodobá, má název a plánované datum dokončení, slouží jako nadskupina pro jednotlivé úkoly. Úkoly se skládají z názvu, popisu, maximálního a minimálního počtu bodů. V průběhu tvoření obsahu projektu jednotlivé části obsahu označují úkoly jako splněné.
+
+   \item[FR10 Projekt -- Správa obsahu]
+   Aplikace umožňuje vedoucím a spolupracovníkům projektu tvořit jeho obsah. Ten může být soukromý, neboli dostupný pouze pro členy projektu, nebo veřejný, v tomto případě je dostupný pro všechny účastníky \gls{is}.
+
+   Obsah je členěn do částí. Každá část tvoří samostatný celek, jenž se zakládá na určité šabloně (například šablona pro text, obrázek, graf), a může označovat jeden či několik úkolů za splněné. Seřazené části dávají výsledný obsah projektu, jenž se dá prohlížet online, případně zobrazit upravený pro tisk.
+
+   \item[FR11 Projekt -- Snímky iterací]
+   Aplikace poskytuje funkcionalitu vytvoření snímku určité iterace. Je to záznam aktuálního stavu všech částí obsahu, které splňují alespoň jeden z úkolů vybrané iterace. Tento záznam je dostupný pouze pro čtení a existuje nezávisle na obsahu projektu. Snímek lze po vytvoření odevzdat pro ohodnocení, které spočívá v přiřazování bodů s volitelným komentářem k jednotlivým úkolům snímku. Dané hodnocení snímku se promítá do celkového přehledu iterací projektu. V případě, že existuje víc ohodnocených snímků jedné iterace, tak se bere nejnovější (nejpozději upravené). Existuje možnost změnit ohodnocení snímku, ale danou činnost může provádět pouze uživatel, jenž je původním hodnotitelem snímku.
+
+   \item[FR12 Projekt -- Důvěryhodnost]
+   Aplikace označuje projekt za důvěryhodný, pokud alespoň jeden z vedoucích je důvěryhodný. To se projevuje v podobě speciálního značení vedle názvu projektu.
+
+   \item[FR13 Omezení obsahu \gls{is} pouze na projekty]
+   Informační systém je pouze služba pro správu prací, nebude poskytovat žádnou jinou funkcionalitu pro uchovávaní dat s rychle stárnoucí hodnotou. Tím se zamezí nutnost neustálého udržování aplikace z hlediska obsahu.
+
+\end{dl}
+
+
+\subsection{Obecné požadavky}
+
+\begin{dl}
+   \item[NR00 Veřejné API]
+   Aplikace nabízí otevřené \gls{api} pro vývojáře klientských aplikací.
+
+   \item[NR01 Dokumentace]
+   Součástí aplikace je vývojářská a uživatelská dokumentace.
+
+   \item[NR02 Rozšiřitelnost]
+   Aplikace bere v ohled budoucí rozvoj aplikace a zvyšující se nároky na server.
+
+   \item[NR03 Optimalizace uživatelského rozhraní]
+   Webové rozhraní aplikace je adaptované pro základní prohlížeče (Google Chrome, Mozilla Firefox, Apple Safari) a je responzivního nebo adaptivního typu optimalizované minimálně pro dvě velikosti obrazovek -- mobilních telefonů (pod 1000 px) a desktopových počítačů (nad 1000 px).
+
+   \newpage
+   \item[NR04 GDPR] 
+   Aplikace splňuje požadavky \gls{gdpr}.
+
+   \item[NR05 Jazykové verze] 
+   Rozhraní aplikace bude dostupné v anglickém jazyce.
+\end{dl}

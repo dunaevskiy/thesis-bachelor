@@ -1,0 +1,41 @@
+\chapter{Úvod}
+
+Vysokoškolské prostředí je jedna z mnoha oblastí, kde se v současné době velice často vyžaduje pokročilá správa strukturovaných celků v podobě jednorázových semestrálních úkolů, semestrálních prací, soukromých a týmových projektů, bakalářských a diplomových prací.
+
+Ve snaze naplnit danou potřebu jednotlivé výzkumné a akademické instituce poskytují svým studentům a zaměstnancům centrální uzavřené systémy orientované spíš na~menší celky (předměty, katedry), protože velice často vyžadují specifické typy obsahů. Ve finanční oblasti jsou potřeba například interaktivní grafy časového průběhu, v informačních technologiích ukázky zdrojového kódu a popisy systémů s pomocí jazyků konceptuálního modelování. Dané servisy mohou představovat vlastní implementace systémů správy nebo komerční software s uzavřenými zdrojovými kódy. Z hlediska \gls{oss} řešení neexistuje žádný servis, jenž by se plně orientoval na vedení a správu studentských projektů.
+
+Vzhledem k dané situaci se dá předpokládat, že vznik moderního \gls{oss} nástroje pro správu takových celků, jenž by obsahoval jisté společné rysy, ale zároveň byl snadno přizpůsobitelný potřebám, by mohl být přínosem pro některé akademické instituce.
+
+
+
+\clearpage
+\section{Cíl práce}
+
+Cílem této práce je analýza stávajících způsobů vedení studentských projektů zaměřená na \gls{fit} \gls{čvut} s následným návrhem a implementací \gls{oss} informačního systému. Nová služba by měla být univerzálnější a víc přizpůsobena uživatelským požadavkům v oblasti řízení studentských prací.
+
+Pro výchozí analýzu budou vybrány některé služby na fakultě, které dle subjektivního hodnocení mají největší podíl na správě projektů či nabývají užitečných funkcí. Na základě získaných poznatků bude navržena obecná specifikace nového informačního systému, která bude složit osnovou pro implementaci serverové a klientské části aplikace. Důraz bude kladen především na uživatelsky pohodlné rozhraní a dostatečnou funkcionální ohebnost. Pro dosažení daného cíle budou parciálně otestovány vybrané nástroje, technologie a implementační řešení v některých aspektech, aby se docílilo optimálního výběru.
+
+Konečným výsledkem bude dočasně nasazený plně funkční prototyp aplikace pro správu studentských prací. V případě úspěšné a dostatečné integrace s existujícími službami na \gls{fit} \gls{čvut} bude zvažováno nabídnutí pro využití na dané fakultě.
+
+
+
+\clearpage
+\section{Struktura práce}
+
+\textbf{Kapitola 1} se věnuje obecné analýze portálů a servisů \gls{fit} \gls{čvut}, které slouží pro správu projektů a plnění semestrálních úkolů. U jednotlivých služeb jsou popsány jejich silné a slabé stránky, které následně budou sloužit pro návrh nového \gls{is}.
+
+\textbf{Kapitola 2} specifikuje obecné a funkční požadavky na nový \gls{is} a podrobně analyzuje vybrané primární procesy s pomocí konceptuálního modelování a jazyka \gls{uml}.
+
+\textbf{Kapitola 3} definuje základní nástroje a technologie, s pomocí nichž se bude realizovat implementace \gls{is}, a povrchově popisuje návrh architektury.
+
+\textbf{Kapitola 4} popisuje tvorbu serverové RESTful aplikace. Postupně jsou analyzovány, navrhovány a implementovány vybrané části aplikace. Pro tyto účely jsou v některých aspektech parciálně testovány webové frameworky, databáze a možná implementační řešení s následným výběrem nejvhodnějšího řešení.
+
+\textbf{Kapitola 5} je obdobná čtvrté kapitole, ale už se věnuje především tvorbě klientské webové aplikace. Kromě implementace aplikace kapitola zahrnuje psychologické vnímání uživatelského rozhraní a tvorbu designu.
+
+\textbf{Kapitola 6} zkoumá vliv legislativy na oblast webových aplikací, jaké nároky jsou kladeny v současné době a co je potřeba split v případě implementace \gls{is} pro akademické instituce.
+
+\textbf{Kapitola 7} využívá hotové funkcionality serverové a klientské části aplikace a popisuje způsob automatického a manuálního testování. Závěr kapitoly se věnuje možnému průběhu nasazení \gls{is} na produkční server.
+
+Na závěr je zhodnocen výsledek a dosažení předem stanovených cílů a splnění zadání bakalářské práce.
+
+V přílohách a na paměťové kartě jsou uvedeny zdrojové kódy obou částí \gls{is}, krátké dokumentace pro vývojáře i pro uživatelé a jiné dodatečné materiály.

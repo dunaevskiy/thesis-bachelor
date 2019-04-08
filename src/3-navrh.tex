@@ -1,0 +1,41 @@
+\chapter{Obecná analýza a návrh}
+
+Na základě požadavků na informační systém lze aplikaci rozdělit na dvě samostatné části. První je serverová aplikace s logickou složkou, jenž bude poskytovat \gls{api} pro klientské aplikace. Druhou nezbytnou část bude tvořit klientská webová aplikace využívající \gls{api} a obsahující vlastní logiku pro rendrování~\footnote{Zde proces, při kterém z předem získaných dat vzniká grafické uživatelské rozhraní.} obsahu projektů.
+
+Dané rozdělení zajistí případný vývoj klientských aplikací pro jiné platformy.
+
+\todo{Text}
+
+\todo[color=colordiagram]{DIAGRAM KOMPONENTŮ - Celá struktura, ne do hloubky}
+
+
+% --------------------------------------------------------------------------------------------------
+% Systém správy verzí
+% --------------------------------------------------------------------------------------------------
+
+
+\section{Systém správy verzí}
+
+\todo{Popis uplatnění GITu}
+
+
+% --------------------------------------------------------------------------------------------------
+% Dokumentace
+% --------------------------------------------------------------------------------------------------
+
+
+\section{Dokumentace}
+
+Informační systém je dokumentován dvěma způsoby -- pomocí komentářů v samotném zdrojovém kódu a nezávislých příruček, jež obsahují všeobecné informace. Formát komentářů se řídí dle norem generátorů dokumentací. Pro serverovou aplikaci psanou v jazyce \texttt{typescript} se jedná o generátor TypeDoc, v případě webového klienta psaného v \texttt{javascript} jde o podobný generátor \texttt{JSDoc}. V případě potřeby existuje možnost vytvoření manuálu na základě okomentovaných částí.
+
+Dodatečné příručky tvoří samostatné celky spravované frameworkem \texttt{docsify}. Uživatelská příručka popisuje jednotlivé případy užití na základě webového klienta. Vývojářská dokumentace zachycuje detaily, jež by bylo nevhodné dávat do zdrojového kódu -- popis inicializace aplikací, popis interakce komponentů, šablony pro vytváření určitých souborů a další náležitosti~\footnote{Kopie obou příruček jsou dostupné na přiložené SD kartě.}.
+
+
+% --------------------------------------------------------------------------------------------------
+% Vybrané nástroje a technologie
+% --------------------------------------------------------------------------------------------------
+
+
+\section{Nástroje a technologie}
+
+\todo{Nástroje, jazyky, apod., jenž budou použity v obou částech (server i klient). Volba.}

@@ -18,6 +18,10 @@
 \usepackage{xcolor} 
 \usepackage{blindtext}
 \usepackage{enumitem}
+
+\definecolor{colordiagram}{HTML}{f1c40f}
+\definecolor{colortodo}{HTML}{e74c3c}
+\usepackage[color=colortodo,shadow]{todonotes}
 % \usepackage{amsmath} %advanced maths
 % \usepackage{amssymb} %additional math symbols
 
@@ -25,11 +29,12 @@
 \usepackage{minted}
 \usemintedstyle{bodland}
 
+
 % Citations
 \usepackage[
    backend=biber
   ,style=iso-numeric
-  ,sorting=nyt
+  ,sorting=none
   ,autolang=other
   ,sortlocale=cs_CZ
   ,spacecolon=false
@@ -43,7 +48,6 @@
 
 % Captions
 \usepackage[labelfont={bf},textfont={}]{caption}
-% \DeclareCaptionType{code}[Zdrojový kód][Seznam zdrojových kódů]
 
 % Figures above footnotes
 \feetbelowfloat
@@ -85,14 +89,21 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{introduction}
-   \input{src/uvod.tex}
+   \listoftodos
+   \input{src/0-uvod.tex}
 \end{introduction}
 
-\input{src/cil-prace.tex}
-\input{src/analyza-spravy.tex}
+\input{src/1-analyza-spravy.tex}
+\input{src/2-specifikace.tex}
+\input{src/3-navrh.tex}
+\input{src/4-server.tex}
+\input{src/5-klient.tex}
+\input{src/6-pravni-narizeni.tex}
+\input{src/7-testovani.tex}
+\input{src/8-rozvoj.tex}
 
 \begin{conclusion}
-   \input{src/zaver.tex}
+   \input{src/9-zaver.tex}
 \end{conclusion}
 
 \begin{literature}
@@ -110,7 +121,7 @@
 \printglossary[type=\acronymtype,style=acronyms]
 
 \chapter{Obsah přiloženého CD}
-\input{src/cd.tex}
+\input{src/10-cd.tex}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Document End

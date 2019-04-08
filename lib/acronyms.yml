@@ -5,9 +5,15 @@ FIT: Fakulta informačních technologií
 CI: continuous integration
 CD: continuous delivery
 VCS: version control system
-ERD: entity relationship diagram
+ERD: entity-relationship diagram
 IS: informační systém
 UX: user experience
 JWT: json web token
 OSS: open-source software
 UML: Unified Modeling Language
+UC: use case
+GDPR: General Data Protection Regulation
+URI: Uniform Resource Identifier
+SSR: server side rendering
+CSR: client side rendering
+CORS: Cross-Origin Resource Sharing
