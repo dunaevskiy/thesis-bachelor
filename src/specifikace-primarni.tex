@@ -32,8 +32,16 @@ Po vytvoření, či aktualizaci databáze se vytváří unikátní autorizační
 
 \subsection{Správa obsahu projektu}
 
-\todo{Popis životního cyklu částí obsahu}
-\todo[color=colordiagram]{Diagram aktivit}
+Hlavním cílem projektového týmu bude tvorba obsahu pro plnění úkolů v iteracích. Obsah se skládá z jednotlivých částí, které uchovávají svoje data -- samotný text či jiné informace, název šablony, jenž bude v předem definované podobě zobrazovat informace části uživateli, a seznam úkolů, které tato část splňuje. 
+
+Vznik a správa částí je plně řízena vedoucími a spolupracovníky projektu. Návštěvníci a jiní uživatelé mohou pouze zobrazit obsah (pokud na to mají právo dle globální role a nastavení projektu).
+
+V dané specifikaci všechny části mají být nezávislé, ale pro budoucí rozvoj je třeba počítat se snadno rozšiřitelnou strukturou, aby se dala nastavit výměna dat ve sdíleném úložišti. Celkový průběh generování obsahu popisuje diagram \ref{pic:dia-ak-content} -- po požadavku uživatele zobrazit obsah jsou staženy části projektu do prohlížeče a zanalyzovány. Na základě analýzy vzniká seznam potřebných šablon, které jsou rovněž staženy ze serveru a následně použity pro generování obsahu z dat každé části. V případě chybějící nebo jinak poškozené šablony či dat části je zobrazena chyba.
+
+\begin{fig:illustration}
+   \includegraphics[width=1\textwidth]{images/dia-ak-content.pdf}
+   \caption{Diagram generování obsahu projektu}\label{pic:dia-ak-content}
+\end{fig:illustration}
 
 
 % --------------------------------------------------------------------------------------------------
