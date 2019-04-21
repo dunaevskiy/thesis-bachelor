@@ -1,5 +1,13 @@
-\todo{Přehled zajímavých implementovaných prvků, vyřešených problémů.}
+Cílem této práce byla analýza stávajících způsobů vedení studentských projektů zaměřená na \gls{fit} \gls{čvut} s následným návrhem a implementací \gls{oss} informačního systému.
 
-\todo{Výhody a přínosy práce.}
+V souvislosti se stanoveným cílem první část této práce byla věnována rešerši některých dostupných systémů na \gls{fit} \gls{čvut} pro správu projektů. S pomocí slovního popisu a konceptuálních modelů byly zanalyzovány jejich hlavní rysy, poskytovaná funkcionalita a silné a slabé stránky. Následně na základě získaných znalostí a v souladu se zadáním bakalářské práce byla sepsána specifikace nového informačního systému pro podporu aktivit kolem studijních projektů. Vzniklá specifikace postupně popisuje hlavní životní cyklus projektů a jaké funkční a obecné požadavky budou kladeny na nový systém. V samostatných podkapitolách je popsáná uživatelská činnost, primární aktivity jsou navíc zpřesněny konceptuálníma modelama v jazyku \gls{uml}.
 
-\todo{Kritika nevyřešených nebo problémových částí.}
+V souladu s definovanou specifikací byl vytvořen obecný návrh \gls{oss} aplikace z hlediska vhodných technologií a architektury. Vzniklý systém se skládá ze dvou samostatných částí -- serverové aplikace poskytujcí veřejně dostupné \gls{api} a klientské webové aplikace přizpůsobené pro desktopové i mobilní rozhraní. Obě části jsou psány ve stejném scriptovacím jazyku JavaScript (případě TypeScript, který urdžuje zpětnou kompatibilitu), to přináší přehlednost a jednotnost z hlediska využívaných knihoven. 
+
+Serverová část disponuje vlastním uživatelským systémem založeném na vnějších autorizačních OAuth~2.0 serverech. Spolu s implementovaným systémem práv tvoří jednoduché rozhraní pro kontrolu přístupu uživatelů k jednotlivým funkcionalitám. Jako úložiště jsou využívany databáze PostgreSQL (udržování systémových entit a jejich relací), MongoDB (uchovávání obashu projektů) a Redis (předávání autorizačních klíčů). Komunikace s dostupnými klientskými aplikacemi se provádí přes RESTful \gls{api}.
+
+Implementace klienstého webového rozhraní je založena na technologii \gls{spa} a \gls{ssr}. Z větší části představuje pouze vizualizaci dat ze serveru, ale speciální částí se stal způsob generování obsahu projektu. Logika generování vizuální reprezentace dat byla přenesena na GitHub úložiště, odkud je v případě potřeby automaticky stahována jednotlivými uživateli přes službu jsDelivr. 
+
+Výběr všech technologií byl zdůvoděn v jednotlivých kapitolách práce. V případě nutnosti byly provedeny i některé srovnávací testy frameworků či implementačních řešení. K oběma aplikacím jsou dodávany testovací soubory a krátké dokumentace. V jedné z posledních kapitol je uveden seznam možných vylepšení informačního systému.
+
+Nový informační systém je publikován na serveru GitHub, z důvodů nedostatku dat a zkušeností však není dokonalý. Hlavní cíl práce -- vytvoření nového \gls{oss} nástroje pro správu studentských projektů -- je splněn, sekundárního cíle ale dosaženo nebylo. Projekt z důvodu nedostatku potřebné funkcionality není hotový pro nabídnutí využití na \gls{fit} \gls{čvut}. Budoucí rozvoj a uplatnění služby budou dodatečně konzultovány s fakultou. V případě neúspěchu bude projekt nadále vyvíjen nezávisle.
