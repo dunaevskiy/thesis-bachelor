@@ -7,6 +7,7 @@ CD: continuous delivery
 VCS: version control system
 ERD: entity-relationship diagram
 IS: informační systém
+UI: user interface
 UX: user experience
 JWT: json web token
 OSS: open-source software
@@ -27,3 +28,14 @@ HTML: Hypertext Markup Language
 EU: Evropská unie
 ID: Identification Data
 FAQ: frequently asked questions
+CSS: Cascading Style Sheets
+BM: bundle manager
+SCSS: Sassy CSS
+LESS: Leaner Style Sheets
+SEO: search engine optimization
+SPA: single-page application
+RTL: right-to-left
+LTR: left-to-right
+DOM: Document Object Model
+JSON: JavaScript Object Notation
+ODM: Object Data Modeling
