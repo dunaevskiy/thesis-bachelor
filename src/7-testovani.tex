@@ -1,33 +1,25 @@
-\chapter{Testování a nasazení}
-
-\todo{Úvodní odstavec o testování}
-
+\chapter{Testování, nasazení a dokumentace}
 
 % --------------------------------------------------------------------------------------------------
-% Automatické testování
+% Testování
 % --------------------------------------------------------------------------------------------------
 
+\section{Testování}
 
-\section{Automatické testování}
+Testování je nedílnou součástí každé aplikace. Je nutné pro zajištění kvality kódu a správnosti poskytovaného produktu. Obecně se dá rozdělit na dva základní typy -- manuální, jenž spočívá v testování každé funkcionality a změny lidmi, a automatické, které využívá předem připravených programů nebo skriptů. Manuální testování oproti automatickému je přesnější a může poskytnout mnohem větší spektrum hodnocení, není však rychlé a je ovlivněno lidským faktorem. Automatické testování je proto preferováno vždy, když není potřeba mít zpětnou vazbu přímo od uživatele.
 
-\todo{Porovnání JEST a Mocha, zmínka o podpůrných knihovnách chai, sinon, apod.}
-\todo{Speciální configurace DB pro testování}
-
-\subsection{Unit testy}
-% Unit testy ověřují správnost jednotlivých metod.
-
-\subsection{Integrační testy}
+\todo{Daná kapitola bude dokončena po otestování aplikace uživateli}
 
 
-% --------------------------------------------------------------------------------------------------
-% Manuální testování
-% --------------------------------------------------------------------------------------------------
+\subsection{Automatické testování}
+
+Obě části \gls{is} využívají automatického testování pro ověřování základních funkcionalit systému. Z hlediska výběru testovacího frameworku bylo vybíráno mezi Jest a Mocha. Po vyzkoušené integraci obou bylo rozhodnuto ponechat Jest, protože samostatně poskytoval veškerou potřebnou funkcionalitu. Mocha z tohoto hlediska potřebovala dodatečné knihovny.
 
 
-\section{Manuální testování}
+\subsection{Manuální testování}
 
+Pro testování uživatelského rozhraní nebylo vybráno automatické testování, protože nemůže poskytnout široké spektrum hodnocení. V této souvislosti skupina lidí byla požádána provést předem připravené scenáře a vyjádřit se k pohodlnosti rozhraní, rychlosti nalezení funkcionality a dalším kritériím hodnocení. 
 
-Pro testování uživatelského rozhraní nebylo vybráno automatické testování, protože nemůže poskytnout široké spektrum hodnocení. V této souvislosti skupina lidí byla požádána provést předem připravené scenáře a vyjádřit se k pohodlnosti rozhraní, rychlosti nalezení funkcionality, ...
 
 První scénář:
 \begin{olnar}
@@ -39,6 +31,7 @@ První scénář:
 
 Výsledky scénáře:
 
+... 
 % \begin{fig:table}
 %    \begin{tabular}{| l c c |}
 %       Subjekt & Výsledný čas & Subjektivní složitost (0-10) \\
@@ -55,23 +48,24 @@ V závislosti na výsledcích byla provedena korekce rozhraní.
 
 
 % --------------------------------------------------------------------------------------------------
-% Konfigurace serveru
-% --------------------------------------------------------------------------------------------------
-
-
-\section{Konfigurace serveru}
-
-\todo{SSL certifikát -- nastavení, důležitost}
-\todo{nginx -- proxy,...}
-
-\todo[color=colordiagram]{Deployment diagram}
-
-
-% --------------------------------------------------------------------------------------------------
 % Nasazení
 % --------------------------------------------------------------------------------------------------
 
 
 \section{Nasazení}
-\todo[color=colordiagram]{Lifecycle}
-\todo{pm2}
+
+Nasazení daného informačního systému je pouze dočasné a bude sloužit výhradně pro prezentační účely bakalářské práce. K tomuto účelu je využit osobní virtuální server s operačním systémem linux. Spuštění instancí databází je řízeno technologií kontejnerizace Docker. Příklad konfiguračního souboru se nachází v kořenovém adresáři serverové aplikace. Z hlediska zajištění bezpečnosti autorizace je na serveru povolen \gls{https} protokol s certifikátem podepsaným certifikační autoritou Let’s Encrypt. Po zajištění stabilního prostředí s detailnějším monitorováním procesů jsou aplikace spouštěny v pm2 -- démonu pro správu systému.
+
+Daný případ konfigurace serveru není optimální. Pro dlouhodobý běh aplikace je nutné preciznější nastavení databází, omezení přístupu k serveru přes určité porty, zavedení automatického zálohování, systém oznámení o stavu aplikací a další náležitosti.
+
+
+% --------------------------------------------------------------------------------------------------
+% Dokumentace
+% --------------------------------------------------------------------------------------------------
+
+
+\section{Dokumentace}
+
+Informační systém je dokumentován dvěma způsoby -- pomocí komentářů v samotném zdrojovém kódu a nezávislých příruček, jež obsahují všeobecné informace. Formát komentářů se řídí dle norem generátorů dokumentací. Pro serverovou aplikaci psanou v jazyce \texttt{typescript} se jedná o generátor TypeDoc, v případě webového klienta psaného v \texttt{javascript} jde o podobný generátor \texttt{JSDoc}. V případě potřeby existuje možnost vytvoření manuálu na základě okomentovaných částí.
+
+Dodatečné příručky tvoří samostatné celky spravované frameworkem \texttt{docsify}. Uživatelská příručka popisuje jednotlivé případy užití na základě webového klienta. Vývojářská dokumentace zachycuje detaily, jež by bylo nevhodné dávat do zdrojového kódu -- popis inicializace aplikací, popis interakce komponentů, šablony pro vytváření určitých souborů a další náležitosti\footnote{Kopie obou příruček jsou dostupné na přiloženém médiu.}.
