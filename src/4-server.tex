@@ -32,7 +32,7 @@ Detailnějšímu návrhu architektury jsou věnovány následující podkapitoly
 
 \subsection{Webový aplikační framework}
 
-Framework pro tvorbu \gls{api} je centrálním systémem serverové aplikace. Jeho volba do jisté míry řídí celou architekturu, proto bylo rozhodnuto částečně zanalyzovat některé z nich pro výběr optimální varianty. Důležitá kritéria pro výběr byly:
+Framework pro tvorbu \gls{api} je centrálním systémem serverové aplikace. Jeho volba do~jisté míry řídí celou architekturu, proto bylo rozhodnuto částečně zanalyzovat některé z nich pro výběr optimální varianty. Důležitá kritéria pro výběr byly:
 
 \begin{ulnar}
    \item popularita na GitHub (existence komunity),
@@ -87,7 +87,7 @@ Z výsledků testování~\ref{pic:chart-wf} vyplynulo, že framework express je 
 
 \subsection{Datová úložiště}
 
-Na základě specifikace lze definovat dva různé typy dat z hlediska využití. První skupina je tvořena například daty uživatelů, informacemi o projektu, snímkách obsahu, apod. V této skupině je priorita kladena zachování závislostí neboli relací. Druhou skupinu tvoří text jednotlivých částí obsahu projektů. V tomto případě závislost je pouze jedna -- na projektu, mnohem důležitější je možnost ukládání velkých objemů dat s měnící se strukturou.
+Na základě specifikace lze definovat dva různé typy dat z hlediska využití. První skupina je tvořena například daty uživatelů, informacemi o projektu, snímkách obsahu apod. V této skupině je priorita kladena zachování závislostí neboli relací. Druhou skupinu tvoří text jednotlivých částí obsahu projektů. V tomto případě závislost je pouze jedna -- na projektu, mnohem důležitější je možnost ukládání velkých objemů dat s měnící se strukturou.
 
 Pro první skupinu dat je víc vyhovující jedna z relačních databází, protože na rozdíl od \gls{nosql} databází samostatně spravuje cizí klíče a nabývá principů normalizace dat. Druhá skupina naopak vyžaduje jednu z \gls{nosql} databází pro správu dokumentů. Kromě volnější struktury modelů, které se v daném případě ideálně hodí pro ukládání částí obsahu, poskytuje možnost horizontálního škálování databáze~\cite{dbScaling}. Daná vlastnost bude vyžadována s rostoucími objemy uchovávaných dat, protože v porovnání s horizontálním škálováním, jenž je typické pro relační databáze, je méně náročná z hlediska potřebných zdrojů~\cite{dbScaling}.
 
@@ -101,7 +101,7 @@ V průběhu implementace nastala potřeba definování dočasného úložiště 
 Všechny databáze, až na Redis nejsou napřímo využívány \gls{is}. Prostředníkem komunikace aplikace s PostgreSQL je knihovna TypeORM. Jedná se o \gls{orm} knihovnu, jejíž úkolem je mapování databázových entit a jejich relací na objekty. Zjednodušuje obecnou komunikaci s databází a poskytuje rozhraní bez nutnosti psaní SQL příkazů. Mimo jiné zabezpečuje systém vůči útoku typu \uv{SQL injection}. Obdobná knihovna mongoose, která vzhledem k databázi je typu \gls{odm}, je využívaná pro komunikaci s MongoDB.
 
 
-Stejně jako v případě samotné aplikace je nutné verzovat i strukturu vybraných databází, zejména PostgreSQL, protože obsahuje přesné struktury entit, na rozdíl od MongoDB, která je uchovává převážně ve volném \gls{json} objektu. Řešením jsou tzv. migrace -- soubory, jež uchovávají rozdíl stavů před a po jejich aplikování. Migrace v \gls{is} jsou plně řízeny knihovnou TypeORM. Všechny příkazy pro vytváření, spouštění a reset migrací jsou přidány do souboru \texttt{package.json}, jenž definuje základní \gls{cli} pro komunikaci s projektem.
+Stejně jako v případě samotné aplikace je nutné verzovat i strukturu vybraných databází, zejména PostgreSQL, protože obsahuje přesné struktury entit, na~rozdíl od~\mbox{MongoDB}, která je uchovává převážně ve volném \gls{json} objektu. Řešením jsou tzv. migrace -- soubory, jež uchovávají rozdíl stavů před a po jejich aplikování. Migrace v \gls{is} jsou plně řízeny knihovnou TypeORM. Všechny příkazy pro vytváření, spouštění a reset migrací jsou přidány do souboru \texttt{package.json}, jenž definuje základní \gls{cli} pro komunikaci s projektem.
 
 
 

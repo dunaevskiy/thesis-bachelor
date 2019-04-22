@@ -17,7 +17,7 @@ Aplikace implementovaná v dané práci spadá do první kategorie (prototyp). P
 
 \subsection{Psychologie percepce}
 
-Vnímání lidí se v různých částech světa liší, protože mají odlišné písmo, zvyky, životní úroveň, apod. Proto je důležité zkoumat navrhovanou aplikaci i z psychologického hlediska. Implementace klienta dané práce se soustředí na prostředí střední Evropy. Nebude počítat s \gls{rtl} rozhraním a speciálním vybavením a funkcionalitou pro zdravotně postižené osoby (poruchy percepce, pohybu, apod.). 
+Vnímání lidí se v různých částech světa liší, protože mají odlišné písmo, zvyky, životní úroveň apod. Proto je důležité zkoumat navrhovanou aplikaci i z psychologického hlediska. Implementace klienta dané práce se soustředí na prostředí střední Evropy. Nebude počítat s \gls{rtl} rozhraním a speciálním vybavením a funkcionalitou pro zdravotně postižené osoby (poruchy percepce, pohybu apod.). 
 
 Stejně jako v případě prvního setkání s člověkem je v aplikacích důležitý první dojem, který je v tomto případě ovlivněn například dobou inicializace programu, převládajícími barvami, formou jednotlivých elementů a dalšími faktory. Přitom negativní emoce vyvolané aplikací jsou vidět mnohem lépe, než pozitivní~\cite{tragicDesign}. Uživatelé nevnímají dobré rozhraní, protože je pro ně obvyklé z hlediska zvyklostí.
 
@@ -40,9 +40,7 @@ Spolu s barvou je důležitá i forma od obecného rozvržení stránky až po f
 
 \subsection{Cílová zařízení}
 
-Klientské webové aplikace jsou zpravidla zobrazovány běžnými uživateli v \gls{gui} prohlížečích na zařízeních s odlišnou velikostí monitoru. Dle statistik portálu StatCounter z hlediska zařízení používanými uživateli v posledních letech převládají mobilní~\cite{statCounterDevices}. Tudíž větší zastoupení mají menší velikosti obrazovek. Z tohoto důvodu je adaptace uživatelského rozhraní \gls{is} pro mobily nutná, avšak vzhledem k povaze projektu důraz bude kladen především na desktopové velikosti obrazovek. Dle předpokladu pouze malé procento lidí bude schopno psát projekty na mobilu. Menší zařízení budou využívány pouze pro informační účely. Pokud by v pozdější době vznikla potřeba vytvořit přesnější rozhraní, tak by bylo vhodné zvážit spíš plnohodnotné mobilní aplikace, než pouze webové rozhraní.
-
-Z hlediska prohlížečů je dle obecných požadavků nutné adaptovat \gls{is} pro prohlížeče:
+Klientské webové aplikace jsou zpravidla zobrazovány běžnými uživateli v \gls{gui} prohlížečích na zařízeních s odlišnou velikostí monitoru. Dle statistik portálu StatCounter z hlediska zařízení používanými uživateli v posledních letech převládají mobilní~\cite{statCounterDevices}. Tudíž větší zastoupení mají menší velikosti obrazovek. Z tohoto důvodu je adaptace uživatelského rozhraní \gls{is} pro mobily nutná, avšak vzhledem k povaze projektu důraz bude kladen především na desktopové velikosti obrazovek. Dle předpokladu pouze malé procento lidí bude schopno psát projekty na mobilu. Menší zařízení budou využívány pouze pro informační účely. Pokud by v pozdější době vznikla potřeba vytvořit přesnější rozhraní, tak by bylo vhodné zvážit spíš plnohodnotné mobilní aplikace, než pouze webové rozhraní. Z hlediska prohlížečů je dle obecných požadavků nutné adaptovat \gls{is} pro prohlížeče:
 \begin{ulnar}
    \item Google Chrome,
    \item Mozilla Firefox,
@@ -65,9 +63,9 @@ Vzhledem ke komplexním požadavkům aplikace a potřebě pokročilých funkcí 
 
 Jedním z řešení prvotního načítání jsou \gls{ssr} frameworky. Základní koncept jednotné aplikace zůstává zachovaný, avšak princip načítání první webové stránky se mění. Základní stránka s potřebnými daty je generována již na serveru a předávána jako statický \gls{html} dokument. To napodobuje chování původních webů -- uživatel dostává soubor typu \texttt{text/html}, jehož je schopen ihned zobrazit. Veškeré logické chování \gls{spa} aplikace se načítá až po zobrazení užitečného obsahu. Kromě rychlého uživatelského přístupu má toto chování i vliv na \gls{seo} indexaci stránek webovými vyhledávači. V případě daného \gls{is} však nemá význam, protože se jedná o aplikaci s chráněným obsahem.
 
-Na základě této analýzy byla vyzkoušena implementace několika menších \gls{spa} a \gls{ssr} aplikací s využitím React a Vue. Výsledkem výběru se stal React s pomocným frameworkem pro \gls{ssr} NextJS, protože dle subjektivního hlediska byly nejvhodnější pro realizaci daného webového klienta.
+Na základě této analýzy byla vyzkoušena implementace několika menších \gls{spa} a \gls{ssr} aplikací s využitím React a Vue. Výsledkem výběru se stal React s pomocným frameworkem pro \gls{ssr} NextJS, protože dle subjektivního hlediska byly nejvhodnější pro~realizaci daného webového klienta.
 
-K vybraným nástrojům NextJS a React je třeba mít prostředek pro sdílení dat mezi komponentami. V základním React je tato potřeba řešena přes tzv. \uv{lifting}, který je sice jednoduchý, avšak nepřehledný. Pro předání informace z kořenové komponenty a zpět je nutné posílat potřebná data nebo funkci přes všechny mezikomponenty ve virtuálním DOM React~\cite{reactLifting}. To vede k psaní zbytečného kódu. Místo daného způsobu lze využít jednu z knihoven pro vytváření společného úložiště. Typickým nástrojem je Redux~\ref{pic:dia-redux-store}.
+K vybraným nástrojům NextJS a React je třeba mít prostředek pro sdílení dat mezi komponentami. V základním React je tato potřeba řešena přes tzv. \uv{lifting}, který je sice jednoduchý, avšak nepřehledný. Pro předání informace z kořenové komponenty a zpět je nutné posílat potřebná data nebo funkci přes všechny mezikomponenty ve~virtuálním DOM React~\cite{reactLifting}. To vede k psaní zbytečného kódu. Místo daného způsobu lze využít jednu z knihoven pro vytváření společného úložiště. Typickým nástrojem je Redux~\ref{pic:dia-redux-store}.
 
 \begin{fig:illustration}
    \includegraphics[width=0.8\textwidth]{images/dia-redux-store.pdf}
@@ -75,7 +73,7 @@ K vybraným nástrojům NextJS a React je třeba mít prostředek pro sdílení 
 \end{fig:illustration}
 
 
-Z daného výběru nástrojů vyplývá, že základním jazykem pro realizaci klientské části je JavaScript. Architektura je postavena na CommonJS a ECMAScript 6 modulech, které jsou importovány do různých částí aplikace podle potřeby. To zajišťuje přehlednost a jednoduchou podporu. Dle funkcionality lze aplikaci rozdělit do následujících vrstev:
+Z daného výběru nástrojů vyplývá, že základním jazykem pro~realizaci klientské části je JavaScript. Architektura je postavena na CommonJS a ECMAScript 6 modulech, které jsou importovány do různých částí aplikace podle potřeby. To zajišťuje přehlednost a jednoduchou podporu. Dle funkcionality lze aplikaci rozdělit do následujících vrstev:
 
 \begin{dl}
    \item [Inicializační vrstva] Inicializační vrstva je řízena NextJS, z logického hlediska se jedná o spojení datové a prezentační vrstvy. Její chování se mění na základě prostředí, ve kterém je spouštěna (server nebo klient). Vždy stahuje a připravuje data z \gls{api} serveru, ale pokud se jedná o serverové prostředí, tak generuje i obsah typu \texttt{text/html}.
@@ -91,7 +89,7 @@ Z daného výběru nástrojů vyplývá, že základním jazykem pro realizaci k
 Kromě primárních frameworků zvolených během návrhu architektury pro dosažení potřebné funkcionality byly zvoleny následující nástroje a technologie:
 
 \begin{dl}
-   \item [Jazyk popisu kaskádových stylů] Základní \gls{css} je příliš přímočarý pro popis složitějších struktur. Jeho náhradou se mohly stát jazyky \gls{scss}, \gls{less}, Stylus a další, jež přidávají do \gls{css} syntaxe logické struktury -- podmínky, cykly, apod. Dle subjektivních zkušeností byl zvolen \gls{scss}.
+   \item [Jazyk popisu kaskádových stylů] Základní \gls{css} je příliš přímočarý pro popis složitějších struktur. Jeho náhradou se mohly stát jazyky \gls{scss}, \gls{less}, Stylus a další, jež přidávají do \gls{css} syntaxe logické struktury -- podmínky, cykly apod. Dle subjektivních zkušeností byl zvolen \gls{scss}.
    
    \item [Vykreslování tabulek s pokročilým vyhledáváním] Pro danou funkcionalitu byly vhodné dva frameworky -- DataTables a React Table. Nejdřív byl integrován DataTables, funkcionalita vyhovovala požadavkům, avšak implementace byla náročná a nepřehledná, protože docházelo k prolínání jQuery a React syntaxe. Z tohoto důvodu byl framework DataTables nahrazen React Table.
    
@@ -109,7 +107,7 @@ Adresářová struktura klientské aplikace uvedená ve výpisu \ref{folders:
 \begin{fig:code}
 	\begin{minted}{text}
 .
-├── _templates     - šablony zdrojových kódů (stránky, redux, apod.)
+├── _templates     - šablony zdrojových kódů (stránky, redux apod.)
 ├── pages          - nutná složka NextJS pro stránky
 ├── src
 │   ├── actions    - redux actions
@@ -139,7 +137,7 @@ Převážná část webového klientu je jednoduché zobrazování dat předáva
 
 
 \subsection{Generování obsahu projektu}
-Každý založený projekt má svůj vnitřní obsah, který v průběhu existence projektu vytváří jednotliví uživatelé. Při načítání obsahu projektu uživatelem se ze serveru stahují jednotlivé části. Jedná se o struktury ve formátu \gls{json}, které obsahují data pro generování uživatelsky přijatelného obsahu (s grafickým rozhraním) a název jednoho z interpretů obsahu (v specifikaci nazývaný jako šablona). Příklad nejjednodušší \gls{json} struktury je uveden v příkladu \ref{listing:parts-json}. Proměnné \texttt{interpreter} a \texttt{store} jsou povinné pro každou část, vnitřní struktura \texttt{store} už se však řídí vybraným interpretem. 
+Každý založený projekt má svůj vnitřní obsah, který v průběhu existence projektu vytváří jednotliví uživatelé. Při načítání obsahu projektu uživatelem se ze serveru stahují jednotlivé části. Jedná se o struktury ve formátu \gls{json}, které obsahují data pro~generování uživatelsky přijatelného obsahu (s grafickým rozhraním) a název jednoho z interpretů obsahu (v specifikaci nazývaný jako šablona). Příklad nejjednodušší \gls{json} struktury je uveden v příkladu \ref{listing:parts-json}. Proměnné \texttt{interpreter} a \texttt{store} jsou povinné pro každou část, vnitřní struktura \texttt{store} už se však řídí vybraným interpretem. 
 
 \begin{fig:code}
 	\begin{minted}{javascript}
@@ -197,7 +195,7 @@ Ve specifikaci správy obsahu \gls{is} je uveden požadavek pro návrh struktury
 
 Na základě předchozích rozhodnutí o architektuře aplikace a realizace jednotlivých funkcionalit je navrženo vyhovující rozhraní. Základním východiskem je koncept plochého designu\footnote{Běžnější je anglický výraz \uv{flat design}}, jenž se projevuje ve snaze o zobrazení ovládacích prvků v přehledné, zjednodušené formě a zároveň skrytí méně potřebných funkcionalit bez většího dopadu na komfortní ovládání aplikace. Byl preferován před ostatními styly, protože obvykle nevyžaduje žádné dodatečné prvky a může být plně popsán s využitím pouze \gls{css}, tudíž je nenáročný z datového hlediska.
 
-Před navrhováním jednotlivých stránek byl vytvořen grafický manuál\footnote{Zde je přesnější anglický výraz \uv{style guide}}. Jedná se o pomocnou stránku obsahující všechny základní prvky vyskytující se v designu -- barevná paleta, styly textů, nadpisy, prvky formulářů, apod. Ukázku části manuálu lze vidět na obrázku \ref{pic:style-guide}, elektronická verze\footnote{Pro všechny grafické návrhy uživatelského rozhraní je využíván program Adobe XD} je dostupná v příloze této práce.
+Před navrhováním jednotlivých stránek byl vytvořen grafický manuál\footnote{Zde je přesnější anglický výraz \uv{style guide}}. Jedná se o pomocnou stránku obsahující všechny základní prvky vyskytující se v designu -- barevná paleta, styly textů, nadpisy, prvky formulářů apod. Ukázku části manuálu lze vidět na~obrázku~\ref{pic:style-guide}, elektronická verze\footnote{Pro všechny grafické návrhy uživatelského rozhraní je využíván program Adobe XD} je dostupná v příloze této práce.
 
 \begin{fig:illustration}
    \includegraphics[width=1\textwidth]{images/style-guide.png}
