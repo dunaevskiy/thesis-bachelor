@@ -12,17 +12,6 @@ Celkový předběžný návrh fungování aplikace \ref{pic:dia-deploy-sketch} z
 Pro verzování obou aplikací bude využit \gls{vcs} Git -- jeden z nejpopulárnějších \gls{oss} \gls{vcs} v posledních letech~\cite{vcsG2}. Výhodou Git je jeho decentralizovanost, která je velice důležitá pro vývoj \gls{oss} aplikací, protože poskytuje nezávislost jednotlivým vývojářům.
 
 
-% --------------------------------------------------------------------------------------------------
-% Dokumentace
-% --------------------------------------------------------------------------------------------------
-
-
-\section{Dokumentace}
-
-Informační systém je dokumentován dvěma způsoby -- pomocí komentářů v samotném zdrojovém kódu a nezávislých příruček, jež obsahují všeobecné informace. Formát komentářů se řídí dle norem generátorů dokumentací. Pro serverovou aplikaci psanou v jazyce \texttt{typescript} se jedná o generátor TypeDoc, v případě webového klienta psaného v \texttt{javascript} jde o podobný generátor \texttt{JSDoc}. V případě potřeby existuje možnost vytvoření manuálu na základě okomentovaných částí.
-
-Dodatečné příručky tvoří samostatné celky spravované frameworkem \texttt{docsify}. Uživatelská příručka popisuje jednotlivé případy užití na základě webového klienta. Vývojářská dokumentace zachycuje detaily, jež by bylo nevhodné dávat do zdrojového kódu -- popis inicializace aplikací, popis interakce komponentů, šablony pro vytváření určitých souborů a další náležitosti\footnote{Kopie obou příruček jsou dostupné na přiložené SD kartě.}.
-
 
 % --------------------------------------------------------------------------------------------------
 % Vybrané nástroje a technologie
@@ -34,16 +23,10 @@ Dodatečné příručky tvoří samostatné celky spravované frameworkem \textt
 Kromě výše uvedeného nástroje pro správu verzí Git budou obě aplikace informačního systému využívat i další společné nástroje a technologie. Poslední část této kapitoly popisuje některé z nich s uvedením subjektivních důvodů, proč byly vybrány. Specifické nástroje, jenž byly zvoleny pro implementaci pouze serverové nebo klientské aplikace, budou podrobně popsány v kapitolách 4 a 5. 
 
 \subsection{JavaScript}
-Jako základní jazyk pro implementaci je vybrán JavaScript standardu ECMAScript 2016. Z hlediska klientské webové aplikace je to jediná efektivní možnost pro realizaci potřebné funkcionality. JavaScript na severu je spouštěn v NodeJS prostředí a byl zvolen kvůli technologii \gls{ssr}. Detailnější analýza volby JavaScriptu pro implementaci se nachází ve 4. a 5. kapitole.
+Jako základní jazyk pro implementaci je vybrán JavaScript standardu ECMAScript 2016. Z hlediska klientské webové aplikace je to jediná efektivní možnost pro realizaci potřebné funkcionality. JavaScript na severu je spouštěn v NodeJS prostředí a byl zvolen pro přehlednost a jednotnost z hlediska využívaných knihoven.
 
 \subsection{Yarn}
 Správce balíčků je důležitou součástí každého většího projektu, poskytuje pohodlné rozhraní pro správu a využití knihoven třetích stran s případnou automatickou aktualizací závislostí. Pro jazyk JavaScript existuje několik správců, mezi které patří npm a Yarn. Dle osobních zkušeností byl vybrán Yarn, protože v posledních letech byl mnohem stabilnější z hlediska poskytované funkcionality.
-
-\subsection{JSON Web Token}
-Vzhledem k potřebě autorizované komunikaci mezi klientskou částí aplikace a serverovým \gls{api} je nutné zvolit způsob identifikace uživatele v systému. Jedním ze způsobů identifikace je využívání unikátního klíče během každého požadavku na server. Knihovna JSON Web Token slouží ke generování a ověřování takových klíčů. Podrobnější popis knihovny a její využití v realizaci se nachází ve 4. kapitole.
-
-\subsection{ExpressJS}
-Oba webové servery využívají stejný framework pro návrh a implementaci webové aplikace a \gls{api}. Byl vybrán vzhledem k ostatním závislostem projektu. Podrobnější popis knihovny a její využití v realizaci se nachází ve 4. a 5. kapitole.
 
 \subsection{Prettier}
 Prettier je nástroj zajištující kvalitu kódu z hlediska vizuální stránky. Kontroluje zdrojové kódy více než 12 jazyků a knihoven, mezi které patří například JavaScript, JSX, TypeScript, SCSS, HTML a JSON~\cite{prettier}, jež jsou využívány v implementaci \gls{is}.

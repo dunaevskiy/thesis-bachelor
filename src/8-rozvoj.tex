@@ -2,7 +2,7 @@
 
 Vzniklá implementace aplikace je prvním prototypem -- beta verze, jež potřebuje zčásti provést optimalizaci a následně otestovat v reálném nasazení se skutečnými uživateli, aby se mohly detekovat chyby, na které se nepřišlo během umělého testování (automatického i uživatelského).
 
-Informační systém dle způsobů rozvoje lze rozdělit na dva hlavní směry -- obecné univerzální zdokonalování a rozvoj se zaměřením na \gls{fit} \gls{čvut}, na základě analýzy servisů kterého byl navržen daný \gls{is}. 
+Informační systém dle způsobů rozvoje lze rozdělit na dva hlavní směry -- obecné univerzální zdokonalování a rozvoj se zaměřením na \gls{fit} \gls{čvut}, na základě analýzy služeb kterého byl navržen daný \gls{is}. 
 
 %Z hlediska obecného rozvoje lze definovat následující úkoly:
 
@@ -21,8 +21,8 @@ Informační systém dle způsobů rozvoje lze rozdělit na dva hlavní směry -
    \item[DO02 Nové interpretátory částí obsahů a integrace se službami třetích stran]
    Interpretátory částí se vždy vážou na jeden určitý typ obsahu a jsou omezovány ukládáním informací pouze ve svém nebo serverovém úložišti. Pro rozšíření možností generování obsahu projektu je potřeba napsat víc typů interpretátorů (například zobrazování tabulek). V případně vhodných úprav životního cyklu rendrování obsahu je možné realizovat nahrávání či ukládání dat na vnější úložiště typu Google Drive, YouTube, Dropbox, Lucidchart a další.
 
-   \item[DO03 Analýza využití servisu a aktualizace \gls{ux}]
-   V případě rozvoje servisu a zvyšování počtu uživatelů je třeba postupně zlepšovat i \gls{ux} klienta. To bude možné po implementaci skriptů pro sbírání statistik. Na základě jejich výsledků lze provést potřebné změny.
+   \item[DO03 Analýza využití systému a aktualizace \gls{ux}]
+   V případě rozvoje sytému a zvyšování počtu uživatelů je třeba postupně zlepšovat i \gls{ux} klienta. To bude možné po implementaci skriptů pro sbírání statistik. Na základě jejich výsledků lze provést potřebné změny.
    
    \item[DO04 Optimalizace stávajícího systému]
    Vzhledem k nedokonalosti stávající implementace je potřeba provést optimalizaci některých funkcionalit. Mezi již známá slabá místa patří odesílání všech výsledků vyhledávání jedním souborem, absence automatického obnovování \gls{jwt} po vypršení doby platnosti, \dots
@@ -35,6 +35,6 @@ Informační systém dle způsobů rozvoje lze rozdělit na dva hlavní směry -
    Aplikace již počítá s integrováním jiných autorizačních serverů. V serverové části stačí přidat novou passportJS strategii s vhodnou konfigurací pro přesměrování na autorizační server a realizovat mapování dat z odpovědi na databázi. Z hlediska uživatelského rozhraní je třeba přidat pouze jedno autorizační tlačítko. V případě potřeby využití \texttt{access token} autorizačního serveru bude potřeba rozšířit databázi a vyřešit ukládání a obnovování \texttt{access token} a \texttt{refresh token}.
 
    \item[FIT01 Integrace s FIT Klasifikace]
-   Výsledné hodnocení projektů může být vhodné exportovat do servisu FIT Klasifikace. V nejjednodušší verzi se jedná o zápis celkového počtu bodů projektu všem jeho členům registrovaným přes autorizační server \gls{čvut}. 
+   Výsledné hodnocení projektů může být vhodné exportovat do služby FIT Klasifikace. V nejjednodušší verzi se jedná o zápis celkového počtu bodů projektu všem jeho členům registrovaným přes autorizační server \gls{čvut}. 
 
 \end{dl}

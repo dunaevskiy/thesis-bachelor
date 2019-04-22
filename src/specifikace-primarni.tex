@@ -12,7 +12,7 @@ Z celé množiny funkcionalit \gls{is} lze vyčlenit několik primárních aktiv
 
 Základní a prvotní činností \gls{is} je registrace či následné přihlášení neautentizovaných uživatelů. Vzhledem k absenci vlastního autorizačního serveru jsou využívány autorizační servery třetích stran.
 
-Cyklus autentizace přes vybraný servis~\ref{pic:dia-ak-auth} začíná uživatelským požadavkem na server. Informační systém přesměruje uživatele na stránky třetí strany, kdy v případě první návštěvy bude uživatel dotázán na povolení poskytovaní jistých osobních informací. V případě odmítnutí je ukončen celý proces autentizace. Pokud uživatel povolil poskytování informací, nebo ho již měl schválený, tak autorizační server posílá potřebná data na server \gls{is}.
+Cyklus autentizace přes vybranou službu~\ref{pic:dia-ak-auth} začíná uživatelským požadavkem na server. Informační systém přesměruje uživatele na stránky třetí strany, kdy v případě první návštěvy bude uživatel dotázán na povolení poskytovaní jistých osobních informací. V případě odmítnutí je ukončen celý proces autentizace. Pokud uživatel povolil poskytování informací, nebo ho již měl schválený, tak autorizační server posílá potřebná data na server \gls{is}.
 
 Dle poskytnutých informací server ověřuje, zda se jedná o nového uživatele, pak zakládá nový účet se všemi náležitostmi (přiřazení výchozí role, oznámení, apod.), nebo o již existujícího, potom kontroluje, zda není potřeba aktualizovat některé informace vzhledem k údajům (údaje, které nemají přímý vliv na identifikaci -- jméno, email, apod.).
 
