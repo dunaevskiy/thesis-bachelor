@@ -38,5 +38,8 @@ RTL: right-to-left
 LTR: left-to-right
 DOM: Document Object Model
 JSON: JavaScript Object Notation
-ODM: Object Data Modeling
+ODM: object data modeling
 HTTPS: Hypertext Transfer Protocol Secure
+HTTP: Hypertext Transfer Protocol
+CLI: command-line interface
+ORM: object-relational mapping

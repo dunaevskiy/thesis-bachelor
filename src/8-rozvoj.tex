@@ -32,7 +32,7 @@ Informační systém dle způsobů rozvoje lze rozdělit na dva hlavní směry -
    %V případě zaměření aplikace na \gls{čvut} \gls{fit} a integrace s existujícími službami lze systém doplnit o následující funkcionality:
 
    \item[FIT00 Integrace CVUT OAuth 2.0 serveru]
-   Aplikace již počítá s integrováním jiných autorizačních serverů. V serverové části stačí přidat novou passportJS strategii s vhodnou konfigurací pro přesměrování na autorizační server a realizovat mapování dat z odpovědi na databázi. Z hlediska uživatelského rozhraní je třeba přidat pouze jedno autorizační tlačítko. V případě potřeby využití \texttt{access token} autorizačního serveru bude potřeba rozšířit databázi a vyřešit ukládání a obnovování \texttt{access token} a \texttt{refresh token}.
+   Aplikace již počítá s integrováním jiných autorizačních serverů. V serverové části stačí přidat novou PassportJS strategii s vhodnou konfigurací pro přesměrování na autorizační server a realizovat mapování dat z odpovědi na databázi. Z hlediska uživatelského rozhraní je třeba přidat pouze jedno autorizační tlačítko. V případě potřeby využití \texttt{access token} autorizačního serveru bude potřeba rozšířit databázi a vyřešit ukládání a obnovování \texttt{access token} a \texttt{refresh token}.
 
    \item[FIT01 Integrace s FIT Klasifikace]
    Výsledné hodnocení projektů může být vhodné exportovat do služby FIT Klasifikace. V nejjednodušší verzi se jedná o zápis celkového počtu bodů projektu všem jeho členům registrovaným přes autorizační server \gls{čvut}. 

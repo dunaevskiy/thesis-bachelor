@@ -570,7 +570,7 @@
 	\fi
 
 	\if@abstractendefined
-		\cleardoublepage
+		\clearpage
 		\thispagestyle{empty}
 		~
 		\vfill
