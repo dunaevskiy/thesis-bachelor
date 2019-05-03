@@ -23,7 +23,7 @@ Stejně jako v případě prvního setkání s člověkem je v aplikacích důle
 
 Oblasti web-designu se týkají především dva pojmy -- \gls{ux} a \gls{ui}. \gls{ux} se věnuje tomu, aby dojem uživatele z použití aplikace byl co nejvíc příjemný, jinými slovy se stará o zlepšení uživatelských zkušeností. \gls{ui} převádí tyto zkušenosti do vhodné formy a definuje základní barevné schéma. Barevná paleta se postupem času stává sekundárním identifikačním faktorem~\cite{colorTheory} aplikace. To se projevuje například ve vyhledávání programu v seznamu (v případě, že názvy jsou doprovázeny unikátním logem). Z tohoto důvodu odstíny a jejich kombinace, které jsou voleny během prvního veřejného prototypu, není vhodné kardinálně měnit, aby uživatelé nemuseli se opětovně přizpůsobovat novým podmínkám.
 
-Dobrým příkladem z hlediska barevné palety je vizuální styl \gls{čvut}~\cite{cvutStyleGuide}. Základní barvou je zvolena modrá, jenž v kombinací s formou lva se stává unikátní pro danou instituci. \gls{čvut} má i další, sekundární barvy, jež se mohou vyskytovat ve vizuálním zpracování materiálů univerzity, nebudou však s ní bezpodmínečně asociovány, pokud se použijí samostatně se stejnou formou (například bílý lev na zeleném pozadí).
+Dobrým příkladem z hlediska barevné palety je vizuální styl \gls{čvut}~\cite{cvutStyleGuide}. Základní barvou je zvolena modrá, jež v kombinací s formou lva se stává unikátní pro danou instituci. \gls{čvut} má i další, sekundární barvy, jež se mohou vyskytovat ve vizuálním zpracování materiálů univerzity, nebudou však s ní bezpodmínečně asociovány, pokud se použijí samostatně se stejnou formou (například bílý lev na zeleném pozadí).
 
 Pro vizuální stránku \gls{is} byla primární barvou vybrána studená neintenzivní modrá barva přecházející do tmavší šedé, ukázku dané barvy lze vidět na obrázku~\ref{pic:style-guide}. Spolu s bílou tvoří neutrální kombinaci vhodnou pro dlouhodobou práci. Rozhraní se proto snaží dodržovat především monochromatické prostředí, které v případě nutnosti vyvolání pozornosti používá komplementární barvy -- žlutou nebo oranžovou. Sekundárními barvami pro vedlejší prvky byly zvoleny červená, zelená, stříbrná a modrá. Využívají se především na zvýraznění existence možné činnosti -- například odeslat, vytvořit --, a informování o výsledku -- úspěch, chyba, varování či zdržení.
 
@@ -65,11 +65,11 @@ Jedním z řešení prvotního načítání jsou \gls{ssr} frameworky. Základn�
 
 Na základě této analýzy byla vyzkoušena implementace několika menších \gls{spa} a \gls{ssr} aplikací s využitím React a Vue. Výsledkem výběru se stal React s pomocným frameworkem pro \gls{ssr} NextJS, protože dle subjektivního hlediska byly nejvhodnější pro~realizaci daného webového klienta.
 
-K vybraným nástrojům NextJS a React je třeba mít prostředek pro sdílení dat mezi komponentami. V základním React je tato potřeba řešena přes tzv. \uv{lifting}, který je sice jednoduchý, avšak nepřehledný. Pro předání informace z kořenové komponenty a zpět je nutné posílat potřebná data nebo funkci přes všechny mezikomponenty ve~virtuálním DOM React~\cite{reactLifting}. To vede k psaní zbytečného kódu. Místo daného způsobu lze využít jednu z knihoven pro vytváření společného úložiště. Typickým nástrojem je Redux~\ref{pic:dia-redux-store}.
+K vybraným nástrojům NextJS a React je třeba mít prostředek pro sdílení dat mezi komponentami. V základním React je tato potřeba řešena přes tzv. \uv{lifting}, který je sice jednoduchý, avšak nepřehledný. Pro předání informace z kořenové komponenty a zpět je nutné posílat potřebná data nebo funkci přes všechny mezikomponenty ve~virtuálním DOM React~\cite{reactLifting}. To vede k psaní zbytečného kódu. Místo daného způsobu lze využít jednu z knihoven pro vytváření společného úložiště. Typickým nástrojem je Redux (viz obrázek~\ref{pic:dia-redux-store}).
 
 \begin{fig:illustration}
    \includegraphics[width=0.8\textwidth]{images/dia-redux-store.pdf}
-   \caption{Ukázka rozdílu komunikace mezi komponenty bez (vlevo) nebo s (vpravo) využitím Redux}\label{pic:dia-redux-store}
+   \caption[Ukázka rozdílu komunikace mezi komponenty]{Ukázka rozdílu komunikace mezi komponenty bez (vlevo) nebo s (vpravo) využitím Redux}\label{pic:dia-redux-store}
 \end{fig:illustration}
 
 
@@ -102,7 +102,7 @@ Kromě primárních frameworků zvolených během návrhu architektury pro dosa�
 
 \subsection{Adresářová struktura}
 
-Adresářová struktura klientské aplikace uvedená ve výpisu \ref{folders:client} se řídí požadavky frameworku \mbox{NextJS}. Složky \texttt{pages} a \texttt{static} se zdrojovými kódy nelze přesouvat do podadresářů, všechny ostatní závislosti se nachází v \texttt{src} a jsou většinou roztříděny dle typu (redux actions, redux reducers, konfigurační soubory aplikace...). Výjimku smíchaných typů zdrojových kódů tvoří složky s React komponenty -- šablony stránek a sekundární komponenty. V těchto výjimkách jsou pro přehlednost sloučeny do jedné složky JavaScript soubory komponenty a její \gls{scss} styly. Stejným způsobem jsou strukturovány i složky s jednotlivými stránkami. Bez \gls{bm} by hlídání všech závislostí v takové struktuře bylo problematické, používaný Webpack s pluginami je však nastaven pro automatické vyhledávání specifických souborů. Vývojáři zbývá pouze dodržovat určitou strukturu aplikace.
+Adresářová struktura klientské aplikace uvedená ve výpisu (viz zdrojový kód~\ref{folders:client}) se řídí požadavky frameworku \mbox{NextJS}. Složky \texttt{pages} a \texttt{static} se zdrojovými kódy nelze přesouvat do podadresářů, všechny ostatní závislosti se nachází v \texttt{src} a jsou většinou roztříděny dle typu (redux actions, redux reducers, konfigurační soubory aplikace...). Výjimku smíchaných typů zdrojových kódů tvoří složky s React komponenty -- šablony stránek a sekundární komponenty. V těchto výjimkách jsou pro přehlednost sloučeny do jedné složky JavaScript soubory komponenty a její \gls{scss} styly. Stejným způsobem jsou strukturovány i složky s jednotlivými stránkami. Bez \gls{bm} by hlídání všech závislostí v takové struktuře bylo problematické, používaný Webpack s pluginami je však nastaven pro automatické vyhledávání specifických souborů. Vývojáři zbývá pouze dodržovat určitou strukturu aplikace.
 
 \begin{fig:code}
 	\begin{minted}{text}
@@ -137,7 +137,7 @@ Převážná část webového klientu je jednoduché zobrazování dat předáva
 
 
 \subsection{Generování obsahu projektu}
-Každý založený projekt má svůj vnitřní obsah, který v průběhu existence projektu vytváří jednotliví uživatelé. Při načítání obsahu projektu uživatelem se ze serveru stahují jednotlivé části. Jedná se o struktury ve formátu \gls{json}, které obsahují data pro~generování uživatelsky přijatelného obsahu (s grafickým rozhraním) a název jednoho z interpretů obsahu (v specifikaci nazývaný jako šablona). Příklad nejjednodušší \gls{json} struktury je uveden v příkladu \ref{listing:parts-json}. Proměnné \texttt{interpreter} a \texttt{store} jsou povinné pro každou část, vnitřní struktura \texttt{store} už se však řídí vybraným interpretem. 
+Každý založený projekt má svůj vnitřní obsah, který v průběhu existence projektu vytváří jednotliví uživatelé. Při načítání obsahu projektu uživatelem se ze serveru stahují jednotlivé části. Jedná se o struktury ve formátu \gls{json}, které obsahují data pro~generování uživatelsky přijatelného obsahu (s grafickým rozhraním) a název jednoho z interpretů obsahu (v specifikaci nazývaný jako šablona). Příklad nejjednodušší \gls{json} struktury je uveden ve zdrojovém kódu~\ref{listing:parts-json}. Proměnné \texttt{interpreter} a \texttt{store} jsou povinné pro každou část, vnitřní struktura \texttt{store} už se však řídí vybraným interpretem. 
 
 \begin{fig:code}
 	\begin{minted}{javascript}
@@ -155,8 +155,6 @@ Každý založený projekt má svůj vnitřní obsah, který v průběhu existen
 Vzhledem k tomu, že se části obsahu uchovávají v \gls{nosql} databázi, tak nejsou omezovány relacemi a přesně zadaným obsahem. Mongoose \gls{odm}, která je zprostředkovatelem spojení serverové \gls{api} aplikace a MongoDB, definuje pouze nutně potřebnou strukturu v \texttt{schema} objektech, zbytek se automaticky přizpůsobuje všem novým typem interpretů a struktury proměnné \texttt{store}. Tím je zajištěna požadovaná ohebnost obsahu.
 
 Po načtení všech částí se generuje pole unikátních názvů interpretů, jež jsou použity v částech. Na jeho základě se s použitím nakonfigurované cesty k úložišti vkládají \mintinline{html}{<script>} tagy do \mintinline{html}{<head>} stránky. Je to potenciální místo pro útok na uživatelé systému, protože dovoluje přidat nebezpečný kód do jednoho z interpretů, který se automaticky spustí na všech zařízeních, jež ho načtou s obsahem \gls{is}. Z tohoto důvodu je nutné používat pouze úložiště s omezeným přístupem. V prototypu implementace je využíván veřejný GitHub repozitář s přístupem k souborům přes službu jsDelivr. Tato sekundární služba je nutnou součástí přístupu k souborům v repozitáři, protože \mbox{GitHub} vrací všechny soubory s \gls{mime} typem \texttt{text/html}, což znemožňuje jejich vykonávání v roli JavaScript skriptu. jsDelivr je \gls{oss} \gls{cdn} služba, která dané omezení řeší a poskytuje kopie souborů repozitáře.
-
-Interpret v základní podobě \ref{listing:interpret-js} představuje samospouštěcí lambda funkci (tím je zajištěna ochrana vůči konfliktu globálních proměnných), jenž má unikátní jméno a povinnou metodu \texttt{render}, která přijímá jako parametr \texttt{store} části obsahu a výsledkem poskytuje \gls{html} kód. Během načítání vytváří odkaz na svoje metody v globální proměnné prohlížeče \mintinline{javascript}{window.iterations.interpreters}, odkud jsou volány \gls{is}.
 
 \begin{fig:code}
 	\begin{minted}{javascript}
@@ -181,6 +179,9 @@ Interpret v základní podobě \ref{listing:interpret-js} představuje samospou�
    \caption{Ukázka nejjednoduššího příkladu interpretu}\label{listing:interpret-js}
 \end{fig:code}
 
+
+Interpret v základní podobě (viz zdrojový kód~\ref{listing:interpret-js}) představuje samospouštěcí lambda funkci (tím je zajištěna ochrana vůči konfliktu globálních proměnných), jež má unikátní jméno a povinnou metodu \texttt{render}, která přijímá jako parametr \texttt{store} části obsahu a výsledkem poskytuje \gls{html} kód. Během načítání vytváří odkaz na svoje metody v globální proměnné prohlížeče \mintinline{javascript}{window.iterations.interpreters}, odkud jsou volány \gls{is}.
+
 Podobná struktura interpretu obsahu z hlediska rozšiřitelnosti je omezena pouze možnostmi jazyka JavaScript v prostředí prohlížeče. Kromě povinné metody \mintinline{javascript}{render();} je možné definovat podpůrné funkce, manipulovat s již existujícím obsahem stránky, přidávat knihovny třetích stran, vytvářet interaktivní grafy, 3D vizualizace a další funkcionalitu.
 
 Ve specifikaci správy obsahu \gls{is} je uveden požadavek pro návrh struktury, která by se dala rozšířit i pro komunikaci mezi jednotlivými částmi. To v daném případě lze realizovat úpravou cyklu generování obsahu. Po stažení potřebných věcí se rendering nebude provádět rovnou, před ním může být vytvářena například dočasná uživatelská databáze typu IndexedDB, která bude zprostředkovávat veškerou komunikaci. Samozřejmě bude nutné doplnit části i interprety o další povinné prvky.
@@ -199,5 +200,5 @@ Před navrhováním jednotlivých stránek byl vytvořen grafický manuál\footn
 
 \begin{fig:illustration}
    \includegraphics[width=1\textwidth]{images/style-guide.png}
-   \caption{Ukázka části grafického manuálu s aplikovaným stylem pro \gls{čvut}}\label{pic:style-guide}
+   \caption{Ukázka části grafického manuálu s aplikovaným stylem pro České vysoké učení technické v Praze}\label{pic:style-guide}
 \end{fig:illustration}

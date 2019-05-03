@@ -1,8 +1,8 @@
 \chapter{Obecná analýza a návrh}
 
-Na základě požadavků na informační systém lze aplikaci rozdělit na dvě samostatné části. První je serverová aplikace s logickou složkou, jenž bude poskytovat \gls{api} pro klientské aplikace. Druhou nezbytnou část bude tvořit klientská webová aplikace využívající \gls{api} a obsahující vlastní logiku pro rendrování\footnote{Zde proces, při kterém z předem získaných dat vzniká grafické uživatelské rozhraní.} obsahu projektů.
+Na základě požadavků na informační systém lze aplikaci rozdělit na dvě samostatné části. První je serverová aplikace s logickou složkou, jež bude poskytovat \gls{api} pro klientské aplikace. Druhou nezbytnou část bude tvořit klientská webová aplikace využívající \gls{api} a obsahující vlastní logiku pro rendrování\footnote{Zde proces, při kterém z předem získaných dat vzniká grafické uživatelské rozhraní.} obsahu projektů.
 
-Celkový předběžný návrh fungování aplikace \ref{pic:dia-deploy-sketch} zahrnuje tři uzly: databázový server, aplikační server a pracovní stanici uživatele. Databázový server je využíván pro udržování instancí databázových systémů, do kterých patří relační \gls{sql} databáze a dokumentová \gls{nosql} databáze. Aplikační server bude provozovat dvě navzájem komunikující aplikace -- webový server s veřejným \gls{api} a webový server poskytující uživatelské rozhraní. Server s veřejným \gls{api} může zabezpečeně komunikovat s databázovými systémy. Dané rozdělení zajistí případný vývoj klientských aplikací pro jiné platformy. Poslední uzel představuje pracovní stanici uživatele, na kterém bude v prohlížeči spuštěno uživatelské webové rozhraní, které bude komunikovat s vlastním webových serverem a \gls{api}.
+Celkový předběžný návrh fungování aplikace (viz obrázek~\ref{pic:dia-deploy-sketch}) zahrnuje tři uzly: databázový server, aplikační server a pracovní stanici uživatele. Databázový server je využíván pro udržování instancí databázových systémů, do kterých patří relační \gls{sql} databáze a dokumentová \gls{nosql} databáze. Aplikační server bude provozovat dvě navzájem komunikující aplikace -- webový server s veřejným \gls{api} a webový server poskytující uživatelské rozhraní. Server s veřejným \gls{api} může zabezpečeně komunikovat s databázovými systémy. Dané rozdělení zajistí případný vývoj klientských aplikací pro jiné platformy. Poslední uzel představuje pracovní stanici uživatele, na kterém bude v prohlížeči spuštěno uživatelské webové rozhraní, které bude komunikovat s vlastním webových serverem a \gls{api}.
 
 \begin{fig:illustration}
    \includegraphics[width=0.8\textwidth]{images/dia-deploy-sketch.pdf}
@@ -20,7 +20,7 @@ Pro verzování obou aplikací bude využit \gls{vcs} Git -- jeden z nejpopulár
 
 \section{Nástroje a technologie}
 
-Kromě výše uvedeného nástroje pro správu verzí Git budou obě aplikace informačního systému využívat i další společné nástroje a technologie. Poslední část této kapitoly popisuje některé z nich s uvedením subjektivních důvodů, proč byly vybrány. Specifické nástroje, jenž byly zvoleny pro implementaci pouze serverové nebo klientské aplikace, budou podrobně popsány v kapitolách 4 a 5. 
+Kromě výše uvedeného nástroje pro správu verzí Git budou obě aplikace informačního systému využívat i další společné nástroje a technologie. Poslední část této kapitoly popisuje některé z nich s uvedením subjektivních důvodů, proč byly vybrány. Specifické nástroje, jež byly zvoleny pro implementaci pouze serverové nebo klientské aplikace, budou podrobně popsány v kapitolách 4 a 5. 
 
 \subsection{JavaScript}
 Jako základní jazyk pro implementaci je vybrán JavaScript standardu ECMAScript 2016. Z hlediska klientské webové aplikace je to jediná efektivní možnost pro realizaci potřebné funkcionality. JavaScript na severu je spouštěn v NodeJS prostředí a byl zvolen pro přehlednost a jednotnost z hlediska využívaných knihoven. Některé části serveru jsou psány v JS-kompatibilním jazyku TypeScript.

@@ -1,6 +1,6 @@
 \section{Požadavky na systém}
 
-Pro definování rozsahu práce slouží funkční a obecné požadavky. Funkční požadavky zachycují jednotlivé funkcionality vytvářené aplikace, jejich logickou stránku a chování. Obecné požadavky, neboli nefunkční, jsou požadavky, jenž na systém kladou jistá omezení a tím upřesňují rozsah práce, avšak nedefinují žádnou aktivní složku (například uživatelská funkcionalita nebo serverová činnost). 
+Pro definování rozsahu práce slouží funkční a obecné požadavky. Funkční požadavky zachycují jednotlivé funkcionality vytvářené aplikace, jejich logickou stránku a chování. Obecné požadavky, neboli nefunkční, jsou požadavky, jež na systém kladou jistá omezení a tím upřesňují rozsah práce, avšak nedefinují žádnou aktivní složku (například uživatelská funkcionalita nebo serverová činnost). 
 
 
 \subsection{Funkční požadavky}
@@ -16,13 +16,13 @@ Pro definování rozsahu práce slouží funkční a obecné požadavky. Funkčn
    Aplikace umožňuje účastníkům \gls{is} prohlížet si svoje osobní informace, které jsou uchovávány na serveru. Existuje funkcionalita pro odstranění bez možnosti obnovení (v případě nutnosti zachování určitých činností budou dané činnosti zanonymizovány).
 
    \item[FR03 Upozornění]
-   Aplikace posílá účastníkům \gls{is} upozornění po každé významné činnosti (například ohodnocení práce, archivace projektu\dots{}), jenž se jich přímo týká. Upozornění existují pouze v rámci \gls{is} a představují jednoduchou textovou zprávu. Účastníci mají možnost zobrazit svoje upozornění a označit je jako přečtené/nepřečtené nebo úplně odstranit.
+   Aplikace posílá účastníkům \gls{is} upozornění po každé významné činnosti (například ohodnocení práce, archivace projektu\dots{}), jež se jich přímo týká. Upozornění existují pouze v rámci \gls{is} a představují jednoduchou textovou zprávu. Účastníci mají možnost zobrazit svoje upozornění a označit je jako přečtené/nepřečtené nebo úplně odstranit.
 
    \item[FR04 Projekt -- Životní cyklus]
    Aplikace umožňuje účastníkům \gls{is} zakládat vlastní projekty, ve kterých se automaticky stávají vedoucími. Po založení je možné vytvořit tým, definovat cíle a začít tvořit obsah. V případě neaktuálnosti projektu se dá odstranit, tím zcela zanikne, nebo archivovat, pak existuje možnost ho kdykoliv obnovit. Archivací se zakáže veškerá činnost uživatelů na~daném projektu kromě rušení archivace a odchodu uživatelů z projektového týmu.
 
    \item[FR05 Projekt -- Správa dat]
-   Každý projekt je definován množinou dat, jenž ho popisují a prezentují. Data se dělí na vždy veřejné, skryté a volitelně skryté. Mezi veřejné patří: 
+   Každý projekt je definován množinou dat, jež ho popisují a prezentují. Data se dělí na vždy veřejné, skryté a volitelně skryté. Mezi veřejné patří: 
 
    \begin{ulnar}
       \item kategorie,
@@ -53,7 +53,7 @@ Pro definování rozsahu práce slouží funkční a obecné požadavky. Funkčn
    Na tvorbě obsahu projektu se podílí uživatelé s příslušným oprávněním. Pro přiřazování oprávnění slouží projektové role. Dle logického hlediska se dají rozdělit pouze na tři typy -- vedoucí, spolupracovník a návštěvník.
 
    \newpage
-   Vedoucí mají neomezený přístup z hlediska práv. Prvním vedoucím projektu se vždy stává uživatel, jenž daný projekt založil. Každý vedoucí může prohlásit jiného člena týmu za vedoucího. Odejít z této role však lze pouze v případě, že v projektu zůstane alespoň jeden vedoucí.
+   Vedoucí mají neomezený přístup z hlediska práv. Prvním vedoucím projektu se vždy stává uživatel, jenž daný projekt založil. Každý vedoucí může prohlásit jiného člena týmu za vedoucího. Odejít z této role však lze pouze v případě, že~v projektu zůstane alespoň jeden vedoucí.
 
    Pravým opakem vedoucích jsou návštěvníci, kteří mají právo pouze prohlížet obsah, nikoliv do něj zasahovat. Volné přihlašování na roli návštěvníka lze zakázat, či povolit.
 
@@ -80,7 +80,7 @@ Pro definování rozsahu práce slouží funkční a obecné požadavky. Funkčn
    Obsah je členěn do částí. Každá část tvoří samostatný celek, jenž se zakládá na určité šabloně (například šablona pro text, obrázek, graf), a může označovat jeden či několik úkolů za splněné. Seřazené části dávají výsledný obsah projektu, jenž se dá prohlížet online, případně zobrazit upravený pro tisk.
 
    \item[FR11 Projekt -- Snímky iterací]
-   Aplikace poskytuje funkcionalitu vytvoření snímku určité iterace. Je to záznam aktuálního stavu všech částí obsahu, které splňují alespoň jeden z úkolů vybrané iterace. Tento záznam je dostupný pouze pro čtení a existuje nezávisle na obsahu projektu. Snímek lze po vytvoření odevzdat pro ohodnocení, které spočívá v přiřazování bodů s volitelným komentářem k jednotlivým úkolům snímku. Dané hodnocení snímku se promítá do celkového přehledu iterací projektu. V případě, že existuje víc ohodnocených snímků jedné iterace, tak se bere nejnovější (nejpozději upravené). Existuje možnost změnit ohodnocení snímku, ale danou činnost může provádět pouze uživatel, jenž je původním hodnotitelem snímku.
+   Aplikace poskytuje funkcionalitu vytvoření snímku určité iterace. Je to záznam aktuálního stavu všech částí obsahu, které splňují alespoň jeden z úkolů vybrané iterace. Tento záznam je dostupný pouze pro~čtení a existuje nezávisle na obsahu projektu. Snímek lze po vytvoření odevzdat pro ohodnocení, které spočívá v přiřazování bodů s volitelným komentářem k jednotlivým úkolům snímku. Dané hodnocení snímku se promítá do celkového přehledu iterací projektu. V případě, že existuje víc ohodnocených snímků jedné iterace, tak se bere nejnovější (nejpozději upravené). Existuje možnost změnit ohodnocení snímku, ale danou činnost může provádět pouze uživatel, jenž je původním hodnotitelem snímku.
 
    \item[FR12 Projekt -- Důvěryhodnost]
    Aplikace označuje projekt za důvěryhodný, pokud alespoň jeden z vedoucích je důvěryhodný. To se projevuje v podobě speciálního značení vedle názvu projektu.
@@ -104,7 +104,7 @@ Pro definování rozsahu práce slouží funkční a obecné požadavky. Funkčn
    Aplikace bere v ohled budoucí rozvoj aplikace a zvyšující se nároky na server.
 
    \item[NR03 Optimalizace uživatelského rozhraní]
-   Webové rozhraní aplikace je adaptované pro základní prohlížeče (Google Chrome, Mozilla Firefox, Apple Safari) a je responzivního nebo adaptivního typu optimalizované minimálně pro dvě velikosti obrazovek -- mobilních telefonů (pod 1000 px) a desktopových počítačů (nad 1000 px).
+   Webové rozhraní aplikace je adaptované pro základní prohlížeče (Google Chrome, Mozilla Firefox, Apple Safari) a je responzivního nebo adaptivního typu optimalizované pro dvě velikosti obrazovek -- mobilních telefonů (pod 1~000~px) a desktopových počítačů (nad 1~000~px).
 
    \newpage
    \item[NR04 GDPR] 

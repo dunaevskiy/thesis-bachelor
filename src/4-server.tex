@@ -2,7 +2,7 @@
 
 Serverová aplikace je první ze dvou částí informačního systému. Tvoří centrum logické složky určené ve specifikaci a poskytuje veřejné \gls{api} pro všechny klientské aplikace. Realizuje logickou část uživatelského systému, systému oznámení, správy a hodnocení projektů, tvorby týmů a dalších požadavků. 
 
-Daná kapitola popisuje tvorbu serverové RESTful\footnote{\gls{rest}} aplikace. Postupně jsou analyzovány, navrhovány a popisovány implementace vybraných části služeb. Pro tyto účely jsou v některých aspektech parciálně testovány webové frameworky, databáze a možná implementační řešení s následným výběrem nejvhodnějšího řešení.
+Daná kapitola popisuje tvorbu serverové RESTful aplikace. Postupně jsou analyzovány, navrhovány a popisovány implementace vybraných části služeb. Pro tyto účely jsou v některých aspektech parciálně testovány webové frameworky, databáze a možná implementační řešení s následným výběrem nejvhodnějšího řešení.
 
 
 % --------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@ Na základě těchto faktorů byly vybrány pouze 4 frameworky, jež se techniky
    \item fastify.
 \end{ulnar}
 
-Následný výběr byl řízen povrchovým testem rychlosti. S využitím každého frameworku byla napsána základní logická struktura~\ref{listing:speed-test-wf}, která se omezovala na jeden požadavek typu \texttt{GET} s jedním segmentem cesty a jedním parametrem. Výsledkem požadavku je vypsání odeslaného parametru s předpřipraveným textem.
+Následný výběr byl řízen povrchovým testem rychlosti. S využitím každého frameworku byla napsána základní logická struktura  (viz zdrojový kód~\ref{listing:speed-test-wf}), která se omezovala na jeden požadavek typu \texttt{GET} s jedním segmentem cesty a jedním parametrem. Výsledkem požadavku je vypsání odeslaného parametru s předpřipraveným textem.
 
 \begin{fig:code}
 	\begin{minted}{javascript}
@@ -72,7 +72,7 @@ Alikace~\ref{listing:speed-test-wf} a obdobné realizace s pomocí jiných frame
 \textbf{Procesor:} 2.5 GHz Intel Core i5\newline
 \textbf{Operační paměť:} 8 GB 1600 MHz DDR3
 
-Z výsledků testování~\ref{pic:chart-wf} vyplynulo, že framework express je v daných podmínkách nejlepší volbou, tudíž je vybrán pro implementaci \gls{is}. Daný nástroj bude použit i v realizaci klientské aplikace, kde je do jisté míry doporučován vybraným \gls{ssr} frameworkem, jenž s ním uvádí řadu příkladů v dokumentaci~\cite{nextExpress}.
+Z výsledků testování (viz obrázek~\ref{pic:chart-wf}) vyplynulo, že framework express je v daných podmínkách nejlepší volbou, tudíž je vybrán pro implementaci \gls{is}. Daný nástroj bude použit i v realizaci klientské aplikace, kde je do jisté míry doporučován vybraným \gls{ssr} frameworkem, jenž s ním uvádí řadu příkladů v dokumentaci~\cite{nextExpress}.
 
 
 \begin{fig:illustration}
@@ -89,7 +89,7 @@ Z výsledků testování~\ref{pic:chart-wf} vyplynulo, že framework express je 
 
 Na základě specifikace lze definovat dva různé typy dat z hlediska využití. První skupina je tvořena například daty uživatelů, informacemi o projektu, snímkách obsahu apod. V této skupině je priorita kladena zachování závislostí neboli relací. Druhou skupinu tvoří text jednotlivých částí obsahu projektů. V tomto případě závislost je pouze jedna -- na projektu, mnohem důležitější je možnost ukládání velkých objemů dat s měnící se strukturou.
 
-Pro první skupinu dat je víc vyhovující jedna z relačních databází, protože na rozdíl od \gls{nosql} databází samostatně spravuje cizí klíče a nabývá principů normalizace dat. Druhá skupina naopak vyžaduje jednu z \gls{nosql} databází pro správu dokumentů. Kromě volnější struktury modelů, které se v daném případě ideálně hodí pro ukládání částí obsahu, poskytuje možnost horizontálního škálování databáze~\cite{dbScaling}. Daná vlastnost bude vyžadována s rostoucími objemy uchovávaných dat, protože v porovnání s horizontálním škálováním, jenž je typické pro relační databáze, je méně náročná z hlediska potřebných zdrojů~\cite{dbScaling}.
+Pro první skupinu dat je víc vyhovující jedna z relačních databází, protože na rozdíl od \gls{nosql} databází samostatně spravuje cizí klíče a nabývá principů normalizace dat. Druhá skupina naopak vyžaduje jednu z \gls{nosql} databází pro správu dokumentů. Kromě volnější struktury modelů, které se v daném případě ideálně hodí pro ukládání částí obsahu, poskytuje možnost horizontálního škálování databáze~\cite{dbScaling}. Daná vlastnost bude vyžadována s rostoucími objemy uchovávaných dat, protože v porovnání s horizontálním škálováním, jež je typické pro relační databáze, je méně náročná z hlediska potřebných zdrojů~\cite{dbScaling}.
 
 
 Zástupci vhodných \gls{oss} relačních databází se staly MySQL a PostgreSQL. Vzhledem k mnoha existujícím článkům srovnání databází samostatná analýza nebyla potřeba. Výsledkem výzkumu jednoho z takových článků byl závěr, že oba zástupci \gls{dbms} jsou stejně stabilní, ale PostgreSQL poskytuje navíc podporu některých \gls{nosql} funkcionalit~\cite{mysqlPostgres}. Volbou \gls{nosql} databáze dle subjektivních zkušeností se stala MongoDB.
@@ -112,7 +112,7 @@ Stejně jako v případě samotné aplikace je nutné verzovat i strukturu vybra
 
 \subsection{Adresářová struktura}
 
-Adresářová struktura serverové aplikace je uvedená ve výpisu \ref{folders:server}. Představuje jednoduché rozdělení na funkční zdrojové kódy v adresáři \texttt{src} a testovací soubory v adresáři \texttt{test}, jenž kopírují strukturu \texttt{src} za účelem přehlednosti testovacích souborů. Adresáře \texttt{logs} a \texttt{tmp} uchovávají dočasné soubory, které nemají vliv na funkčnost aplikace.
+Adresářová struktura serverové aplikace je uvedená ve výpisu (viz zdrojový kód~\ref{folders:server}). Představuje jednoduché rozdělení na funkční zdrojové kódy v adresáři \texttt{src} a testovací soubory v adresáři \texttt{test}, jež kopírují strukturu \texttt{src} za účelem přehlednosti testovacích souborů. Adresáře \texttt{logs} a \texttt{tmp} uchovávají dočasné soubory, které nemají vliv na funkčnost aplikace.
 
 \begin{fig:code}
    \begin{minted}{text}
@@ -129,7 +129,7 @@ Adresářová struktura serverové aplikace je uvedená ve výpisu \ref{folde
 ├── tmp             - dočasné soubory
 └── *.*             - inicializační a konfigurační soubory projektu
    \end{minted}
-   \caption{Zkrácený výpis struktury složek klientské aplikace}\label{folders:server}
+   \caption{Zkrácený výpis struktury složek serverové aplikace}\label{folders:server}
 \end{fig:code}
 
 
@@ -191,7 +191,7 @@ res.header(
 \end{fig:code}
 
 
-Speciálním případem požadavku je \texttt{preflight}. Jedna se o HTTP požadavek typu \texttt{OPTIONS}, jenž se posílá samostatně na každé stránce před potřebným požadavkem~\cite{corsActions}. Zjišťuje povolené domény, metody a jiné hlavičky. \texttt{Preflight} požadavek musí být vždy úspěšný, proto spolu s \gls{cors} hlavičkami je v middlewaru odchytáván před jakýmkoliv dalším zpracováním, aby  bylo zajištěno, ze daný typ požadavku vždy proběhne a vrátí parametry serveru. Implementaci detekování a návrat hodnoty lze vidět na ukázce~\ref{cors-preflight}.
+Speciálním případem požadavku je \texttt{preflight}. Jedna se o HTTP požadavek typu \texttt{OPTIONS}, jenž se posílá samostatně na každé stránce před potřebným požadavkem~\cite{corsActions}. Zjišťuje povolené domény, metody a jiné hlavičky. \texttt{Preflight} požadavek musí být vždy úspěšný, proto spolu s \gls{cors} hlavičkami je v middlewaru odchytáván před jakýmkoliv dalším zpracováním, aby  bylo zajištěno, ze daný typ požadavku vždy proběhne a vrátí parametry serveru. Implementaci detekování a návrat hodnoty lze vidět na ukázce zdrojového kódu~\ref{cors-preflight}.
 
 
 \begin{fig:code}

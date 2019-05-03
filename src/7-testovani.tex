@@ -1,14 +1,14 @@
 \chapter{Testování, nasazení a dokumentace}
 
+
 % --------------------------------------------------------------------------------------------------
 % Testování
 % --------------------------------------------------------------------------------------------------
 
+
 \section{Testování}
 
-Testování je nedílnou součástí každé aplikace. Je nutné pro zajištění kvality kódu a správnosti poskytovaného produktu. Obecně se dá rozdělit na dva základní typy -- manuální, jenž spočívá v testování každé funkcionality a změny lidmi, a automatické, které využívá předem připravených programů nebo skriptů. Manuální testování oproti automatickému je přesnější a může poskytnout mnohem větší spektrum hodnocení, není však rychlé a je ovlivněno lidským faktorem. Automatické testování je proto preferováno vždy, když není potřeba mít zpětnou vazbu přímo od uživatele.
-
-\todo{Daná kapitola bude dokončena po otestování aplikace uživateli}
+Testování je nedílnou součástí každé aplikace. Je nutné pro zajištění kvality kódu a správnosti poskytovaného produktu. Obecně se dá rozdělit na dva základní typy -- manuální, jež spočívá v testování každé funkcionality a změny lidmi, a automatické, které využívá předem připravených programů nebo skriptů. Manuální testování oproti automatickému je přesnější a může poskytnout mnohem větší spektrum hodnocení, není však rychlé a je ovlivněno lidským faktorem. Automatické testování je proto preferováno vždy, když není potřeba mít zpětnou vazbu přímo od uživatele.
 
 
 \subsection{Automatické testování}
@@ -18,33 +18,7 @@ Obě části \gls{is} využívají automatického testování pro ověřování 
 
 \subsection{Manuální testování}
 
-Pro testování uživatelského rozhraní nebylo vybráno automatické testování, protože nemůže poskytnout široké spektrum hodnocení. V této souvislosti skupina lidí byla požádána provést předem připravené scénáře a vyjádřit se k pohodlnosti rozhraní, rychlosti nalezení funkcionality a dalším kritériím hodnocení. 
-
-
-První scénář:
-\begin{olnar}
-   \item Přihlaste se do informačního systému.
-   \item Podívejte se na svoje upozornění.
-   \item Zjistěte, kolik máte nových upozornění.
-   \item \dots
-\end{olnar}
-
-Výsledky scénáře:
-
-... 
-% \begin{fig:table}
-%    \begin{tabular}{| l c c |}
-%       Subjekt & Výsledný čas & Subjektivní složitost (0-10) \\
-%       \hline
-%       Charlotte & 38 s & 3 \\
-%       Alice & 42 s& 2 \\
-%       John & 41 s & 3 \\
-%       \hline
-%    \end{tabular}
-%    \caption{Výsledky prvního scénáře uživatelského testování}\label{test:results-1}
-% \end{fig:table}
-
-V závislosti na výsledcích byla provedena korekce rozhraní.
+Pro testování uživatelského rozhraní nebylo vybráno automatické testování, protože nemůže poskytnout široké spektrum hodnocení. V této souvislosti skupina lidí byla požádána provést předem připravené scénáře a vyjádřit se k pohodlnosti rozhraní, rychlosti nalezení funkcionality a dalším kritériím hodnocení. V závislosti na výsledcích byla provedena korekce rozhraní. Všechny snenáře akceptačních testů lze nalézt na přiloženém médiu.
 
 
 % --------------------------------------------------------------------------------------------------
@@ -54,9 +28,9 @@ V závislosti na výsledcích byla provedena korekce rozhraní.
 
 \section{Nasazení}
 
-Nasazení daného informačního systému je pouze dočasné a bude sloužit výhradně pro prezentační účely bakalářské práce. K tomuto účelu je využit osobní virtuální server s operačním systémem linux. Spuštění instancí databází je řízeno technologií kontejnerizace Docker. Příklad konfiguračního souboru se nachází v kořenovém adresáři serverové aplikace. Z hlediska zajištění bezpečnosti autorizace je na serveru povolen \gls{https} protokol s certifikátem podepsaným certifikační autoritou Let’s Encrypt. Po zajištění stabilního prostředí s detailnějším monitorováním procesů jsou aplikace spouštěny v pm2 -- démonu pro správu systému.
+Nasazení daného informačního systému je pouze dočasné a bude sloužit výhradně pro prezentační účely bakalářské práce. K tomuto účelu je využit osobní virtuální server s operačním systémem linux. Spuštění instancí databází je řízeno technologií kontejnerizace Docker. Příklad konfiguračního souboru se nachází v kořenovém adresáři serverové aplikace. Pro zajištění stabilního prostředí s detailnějším monitorováním procesů jsou aplikace spouštěny v pm2 -- démonu pro správu systému.
 
-Daný případ konfigurace serveru není optimální. Pro dlouhodobý běh aplikace je nutné preciznější nastavení databází, omezení přístupu k serveru přes určité porty, zavedení automatického zálohování, systém oznámení o stavu aplikací a další náležitosti.
+Daný případ konfigurace serveru není optimální. Pro dlouhodobý běh aplikace je nutné preciznější nastavení databází, omezení přístupu k serveru přes určité porty, zavedení automatického zálohování, systém oznámení o stavu aplikací, povolení \gls{https} protokolu a další náležitosti.
 
 
 % --------------------------------------------------------------------------------------------------
@@ -66,6 +40,6 @@ Daný případ konfigurace serveru není optimální. Pro dlouhodobý běh aplik
 
 \section{Dokumentace}
 
-Informační systém je dokumentován dvěma způsoby -- pomocí komentářů v samotném zdrojovém kódu a nezávislých příruček, jež obsahují všeobecné informace. Formát komentářů se řídí dle norem generátorů dokumentací. Pro serverovou aplikaci psanou v jazyce \texttt{typescript} se jedná o generátor TypeDoc, v případě webového klienta psaného v \texttt{javascript} jde o podobný generátor \texttt{JSDoc}. V případě potřeby existuje možnost vytvoření manuálu na základě okomentovaných částí.
+Informační systém je dokumentován dvěma způsoby -- pomocí komentářů v samotném zdrojovém kódu a nezávislých příruček, jež obsahují všeobecné informace. Formát komentářů se řídí dle norem generátorů dokumentací. Pro serverovou aplikaci psanou v jazyce TypeScript se jedná o generátor TypeDoc, v případě webového klienta psaného v JavaScript jde o podobný generátor \texttt{JSDoc}. V případě potřeby existuje možnost vytvoření manuálu na základě okomentovaných částí.
 
 Dodatečné příručky tvoří samostatné celky spravované frameworkem \texttt{docsify}. Uživatelská příručka popisuje jednotlivé případy užití na základě webového klienta. Vývojářská dokumentace zachycuje detaily, jež by bylo nevhodné dávat do zdrojového kódu -- popis inicializace aplikací, popis interakce komponentů, šablony pro vytváření určitých souborů a další náležitosti\footnote{Kopie obou příruček jsou dostupné na přiloženém médiu.}.

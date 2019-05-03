@@ -4,7 +4,7 @@
 
 Z funkčních požadavků plyne, že každý uživatel v systému má vždy přiřazenou právě jednu z globálních rolí. Tím se stanovují jejich práva na provádění určitých činností v rámci \gls{is}.
 
-Základní množinu uživatelských rolí tvoří \texttt{administrator}, \texttt{banned}, \texttt{user}, \texttt{authority} a imaginární role \texttt{guest}, jenž se přímo nevyskytuje v \gls{is} a pouze označuje neautorizované osoby. Diagram \ref{pic:dia-actors-global} znázorňuje logickou dědičnost těchto rolí na základě přístupových práv. Administrátor (\texttt{administrator}) systému má povolené všechny typy činností, zablokovanému (\texttt{banned}) uživateli je povoleno pouze přihlášení a přehled soukromých dat. Přístupová práva ostatních rolí jsou smíšená a jsou podrobně definována v seznamu případů užití.
+Základní množinu uživatelských rolí tvoří \texttt{administrator}, \texttt{banned}, \texttt{user}, \texttt{authority} a imaginární role \texttt{guest}, jež se přímo nevyskytuje v \gls{is} a pouze označuje neautorizované osoby. Diagram na obrázku \ref{pic:dia-actors-global} znázorňuje logickou dědičnost těchto rolí na základě přístupových práv. Administrátor (\texttt{administrator}) systému má povolené všechny typy činností, zablokovanému (\texttt{banned}) uživateli je povoleno pouze přihlášení a přehled soukromých dat. Přístupová práva ostatních rolí jsou smíšená a jsou podrobně definována v seznamu případů užití.
 
 
 \begin{fig:illustration}
@@ -13,7 +13,7 @@ Základní množinu uživatelských rolí tvoří \texttt{administrator}, \textt
 \end{fig:illustration}
 
 
-V každém projektu uživatelé budou nabývat sekundárních rolí, jež budou mít vliv pouze na daný projekt. Mezi ně patří vedoucí projektu (\texttt{leader}), skupina uživatelsky definovaných rolí spolupracovníků (\texttt{contributor}) a návštěvníci (\texttt{visitor}) s právy pouze pro čtení. Jejich logická dědičnost je znázorněna v diagramu \ref{pic:dia-actors-project}.
+V každém projektu uživatelé budou nabývat sekundárních rolí, jež budou mít vliv pouze na daný projekt. Mezi ně patří vedoucí projektu (\texttt{leader}), skupina uživatelsky definovaných rolí spolupracovníků (\texttt{contributor}) a návštěvníci (\texttt{visitor}) s právy pouze pro čtení. Jejich logická dědičnost je znázorněna ve formě diagramu na~obrázku~\ref{pic:dia-actors-project}.
 
 
 \begin{fig:illustration}
@@ -33,7 +33,7 @@ Případ užití neboli \gls{uc} je činnost, k vykonávání které dochází z
 
    \begin{dlnar}
       \item[UC00]
-      \texttt{guest} se může zaregistrovat nebo přihlásit do \gls{is} jedním z dostupných serverů třetích stran.
+      \texttt{guest} se může zaregistrovat nebo přihlásit do \gls{is}.
    \end{dlnar}
 \end{dlnar}
 
