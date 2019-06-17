@@ -554,11 +554,7 @@
 
 \DeclareRobustCommand{\abstractpage}{%
 	\if@abstractxxdefined
-		\cleardoublepage
-		\thispagestyle{empty}
-		~
-		\vfill
-		\chapterstyletitle{Abstrakt}\theabstractxx
+		\cleardoublepage\thispagestyle{empty}~\vfill\chapterstyletitle{Abstrakt}\theabstractxx
 	\else
 		\ClassError{FITthesis}{Abstract in Czech unspecified}{Specify abstract in Czech language using the \abstractXX command.}
 	\fi
@@ -570,11 +566,7 @@
 	\fi
 
 	\if@abstractendefined
-		\clearpage
-		\thispagestyle{empty}
-		~
-		\vfill
-		\chapterstyletitle{Abstract}\theabstracten
+		\clearpage\thispagestyle{empty}~\vfill\chapterstyletitle{Abstract}\theabstracten
 	\else
 		\ClassError{FITthesis}{Abstract in English unspecified}{Specify abstract in English using the \abstractEN command.}
 	\fi

@@ -10,7 +10,7 @@ Pro definování rozsahu práce slouží funkční a obecné požadavky. Funkčn
    Součástí aplikace je uživatelský systém vyjma autorizačního serveru. Aplikace využívá pouze autorizační servery třetích stran, s jejich pomocí probíhá registrace i přihlášení. Identitu uživatele musí být možné přesně určit na všech webových stránkách, kromě skupiny stránek sloužící pro autentizaci či informování o základních náležitostech (například podmínky užití).
 
    \item[FR01 Globální role]
-   Vsechny účastníci \gls{is} mají přidělenou jednu globální roli, která určuje jejich oprávnění v rámci aplikace. Ihned po registraci dostávají výchozí roli standardního uživatele. Existuje speciální role administrátor, jenž má neomezený přístup. Další role představují jiné množiny oprávnění, které jsou definovány v případech užití. U jednotlivých globálních rolí lze nastavit kritérium důvěryhodnosti. Uživatelé s danou rolí jsou v \gls{is} uvedeny se speciálním označením vedle uživatelského jména. Aplikace umožňuje měnit roli uživatele, přidávat nové role a měnit oprávnění.
+   Vsechny účastníci \gls{is} mají přidělenou jednu globální roli, která určuje jejich oprávnění v rámci aplikace. Ihned po registraci dostávají výchozí roli standardního uživatele. Existuje speciální role administrátor, jenž má neomezený přístup. Další role představují jiné množiny oprávnění, které jsou definovány v případech užití. U jednotlivých globálních rolí lze nastavit kritérium důvěryhodnosti. Uživatelé s danou rolí jsou v \gls{is} uvedeny se speciálním označením vedle uživatelského jména. Aplikace umožňuje měnit roli uživatele.
 
    \item[FR02 Osobní informace uživatelů]
    Aplikace umožňuje účastníkům \gls{is} prohlížet si svoje osobní informace, které jsou uchovávány na serveru. Existuje funkcionalita pro odstranění bez možnosti obnovení (v případě nutnosti zachování určitých činností budou dané činnosti zanonymizovány).
@@ -27,7 +27,6 @@ Pro definování rozsahu práce slouží funkční a obecné požadavky. Funkčn
    \begin{ulnar}
       \item kategorie,
       \item název,
-      \item datum založení,
       \item veřejný popis,
       \item seznam členů projektového týmu,
       \item tagy,
@@ -77,7 +76,7 @@ Pro definování rozsahu práce slouží funkční a obecné požadavky. Funkčn
    \item[FR10 Projekt -- Správa obsahu]
    Aplikace umožňuje vedoucím a spolupracovníkům projektu tvořit jeho obsah. Ten může být soukromý, neboli dostupný pouze pro členy projektu, nebo veřejný, v tomto případě je dostupný pro všechny účastníky \gls{is}.
 
-   Obsah je členěn do částí. Každá část tvoří samostatný celek, jenž se zakládá na určité šabloně (například šablona pro text, obrázek, graf), a může označovat jeden či několik úkolů za splněné. Seřazené části dávají výsledný obsah projektu, jenž se dá prohlížet online, případně zobrazit upravený pro tisk.
+   Obsah je členěn do částí. Každá část tvoří samostatný celek, jenž se zakládá na určité šabloně (například šablona pro text, obrázek, graf), a může označovat jeden či několik úkolů za splněné. Seřazené části dávají výsledný obsah projektu, jenž se dá prohlížet online.
 
    \item[FR11 Projekt -- Snímky iterací]
    Aplikace poskytuje funkcionalitu vytvoření snímku určité iterace. Je to záznam aktuálního stavu všech částí obsahu, které splňují alespoň jeden z úkolů vybrané iterace. Tento záznam je dostupný pouze pro~čtení a existuje nezávisle na obsahu projektu. Snímek lze po vytvoření odevzdat pro ohodnocení, které spočívá v přiřazování bodů s volitelným komentářem k jednotlivým úkolům snímku. Dané hodnocení snímku se promítá do celkového přehledu iterací projektu. V případě, že existuje víc ohodnocených snímků jedné iterace, tak se bere nejnovější (nejpozději upravené). Existuje možnost změnit ohodnocení snímku, ale danou činnost může provádět pouze uživatel, jenž je původním hodnotitelem snímku.

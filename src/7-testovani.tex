@@ -13,12 +13,12 @@ Testování je nedílnou součástí každé aplikace. Je nutné pro zajištěn�
 
 \subsection{Automatické testování}
 
-Obě části \gls{is} využívají automatického testování pro ověřování základních funkcionalit systému. Z hlediska výběru testovacího frameworku bylo vybíráno mezi Jest a Mocha. Po vyzkoušené integraci obou bylo rozhodnuto ponechat Jest, protože samostatně poskytoval veškerou potřebnou funkcionalitu. Mocha z tohoto hlediska potřebovala dodatečné knihovny.
+Obě části \gls{is} jsou připravené pro automatické testování pro ověřování základních funkcionalit systému. Z hlediska výběru testovacího frameworku bylo vybíráno mezi Jest a Mocha. Po vyzkoušené integraci obou bylo rozhodnuto ponechat Jest, protože samostatně poskytoval veškerou potřebnou funkcionalitu. Mocha z tohoto hlediska potřebovala dodatečné knihovny.
 
 
 \subsection{Manuální testování}
 
-Pro testování uživatelského rozhraní nebylo vybráno automatické testování, protože nemůže poskytnout široké spektrum hodnocení. V této souvislosti skupina lidí byla požádána provést předem připravené scénáře a vyjádřit se k pohodlnosti rozhraní, rychlosti nalezení funkcionality a dalším kritériím hodnocení. V závislosti na výsledcích byla provedena korekce rozhraní. Všechny snenáře akceptačních testů lze nalézt na přiloženém médiu.
+Vzhledem ke komplexnosti a časové náročnosti projektu manuální testování poskytuje jedinou možnost precizního testování aplikace prostřednictvím akceptačních testů uvedených na přiloženém médiu. Je časově náročnější, ale poskytuje širší spektrum hodnocení. V této souvislosti skupina lidí byla požádána provést předem připravené scénáře a oznámit nalezené chyby či jiné problémy. V závislosti na výsledcích byla provedena korekce rozhraní. V budoucnu drtivá většina akceptačních testů má být nahrazena automatickými testy.
 
 
 % --------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ Pro testování uživatelského rozhraní nebylo vybráno automatické testován
 
 \section{Nasazení}
 
-Nasazení daného informačního systému je pouze dočasné a bude sloužit výhradně pro prezentační účely bakalářské práce. K tomuto účelu je využit osobní virtuální server s operačním systémem linux. Spuštění instancí databází je řízeno technologií kontejnerizace Docker. Příklad konfiguračního souboru se nachází v kořenovém adresáři serverové aplikace. Pro zajištění stabilního prostředí s detailnějším monitorováním procesů jsou aplikace spouštěny v pm2 -- démonu pro správu systému.
+Způsob nasazení daného informačního systému je popsán ve vývojářské dokumentaci. Pro nasazení \gls{is} je přepokládána dispozice virtuálního serveru s operačním systémem linux. Spuštění instancí databází je řízeno technologií kontejnerizace Docker. Příklad konfiguračního souboru se nachází v kořenovém adresáři serverové aplikace. Pro zajištění stabilního prostředí s detailnějším monitorováním procesů jsou aplikace spouštěny v pm2 -- démonu pro správu procesů.
 
 Daný případ konfigurace serveru není optimální. Pro dlouhodobý běh aplikace je nutné preciznější nastavení databází, omezení přístupu k serveru přes určité porty, zavedení automatického zálohování, systém oznámení o stavu aplikací, povolení \gls{https} protokolu a další náležitosti.
 
@@ -42,4 +42,4 @@ Daný případ konfigurace serveru není optimální. Pro dlouhodobý běh aplik
 
 Informační systém je dokumentován dvěma způsoby -- pomocí komentářů v samotném zdrojovém kódu a nezávislých příruček, jež obsahují všeobecné informace. Formát komentářů se řídí dle norem generátorů dokumentací. Pro serverovou aplikaci psanou v jazyce TypeScript se jedná o generátor TypeDoc, v případě webového klienta psaného v JavaScript jde o podobný generátor \texttt{JSDoc}. V případě potřeby existuje možnost vytvoření manuálu na základě okomentovaných částí.
 
-Dodatečné příručky tvoří samostatné celky spravované frameworkem \texttt{docsify}. Uživatelská příručka popisuje jednotlivé případy užití na základě webového klienta. Vývojářská dokumentace zachycuje detaily, jež by bylo nevhodné dávat do zdrojového kódu -- popis inicializace aplikací, popis interakce komponentů, šablony pro vytváření určitých souborů a další náležitosti\footnote{Kopie obou příruček jsou dostupné na přiloženém médiu.}.
+Dodatečné příručky tvoří samostatné celky spravované frameworkem \texttt{docsify}. Uživatelská příručka popisuje vybrané případy užití na základě webového klienta. Vývojářská dokumentace zachycuje detaily, jež by bylo nevhodné dávat do zdrojového kódu\footnote{Kopie obou příruček jsou dostupné na přiloženém médiu.}.

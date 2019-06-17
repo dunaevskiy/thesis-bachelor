@@ -1,15 +1,13 @@
 \chapter{Rozvoj informačního systému}
 
-Vzniklá implementace aplikace je prvním prototypem -- beta verze, jež potřebuje zčásti provést optimalizaci a následně otestovat v reálném nasazení se skutečnými uživateli, aby se mohly detekovat chyby, na které se nepřišlo během umělého testování (automatického i uživatelského).
+Vzniklá implementace aplikace je prvním prototypem -- beta verze, jež potřebuje zčásti provést optimalizaci a následně otestovat v reálném nasazení se skutečnými uživateli, aby se mohly detekovat chyby, na které se nepřišlo během umělého testování (automatického i uživatelského). 
 
 Informační systém dle způsobů rozvoje lze rozdělit na dva hlavní směry -- obecné univerzální zdokonalování a rozvoj se zaměřením na \gls{fit} \gls{čvut}, na základě analýzy služeb kterého byl navržen daný \gls{is}. 
-
-%Z hlediska obecného rozvoje lze definovat následující úkoly:
 
 \begin{dl}   
 
    \item[DO00 Podpora internacionalizace a lokalizace]
-   Aplikace v současném stavu podporuje pouze jeden jazyk -- angličtinu. Je potřeba vytvořit úložiště pro překládané výrazy, napsat implementaci middleware pro serverovou část klienta realizující detekování aktuálního jazyka uživatele (například s pomocí \gls{uri}) a přidat dosazování přeložených výrazů během \gls{ssr} i \gls{csr}. V případně nutnosti realizovat i jiné potřebné formátování.
+   Aplikace v současném stavu podporuje pouze jeden jazyk -- angličtinu. Je potřeba vytvořit úložiště pro překládané výrazy, napsat implementaci middleware pro serverovou část klienta realizující detekování aktuálního jazyka uživatele (například s pomocí \gls{uri}) a přidat dosazování přeložených výrazů během \gls{ssr} i \gls{csr}. V případě nutnosti realizovat i jiné potřebné formátování.
     
    \item[DO01 Hromadné zakládání projektů] 
    Zakládání projektů se ne vždy omezuje založením jednoho dobrovolného projektu s jedním počátečním uživatelem v roli vedoucího. V případech zakládání projektů pro skupinu studentů nebo vyhlašováním otevřeného přihlašování na množinu semestrálních prací s otevřeným zadáním se nabízí možnosti hromadného zakládání projektů.
@@ -18,6 +16,12 @@ Informační systém dle způsobů rozvoje lze rozdělit na dva hlavní směry -
 
    Založit povinné projekty hromadně -- definují se společné metainformace projektů a množina uživatelů. Výsledkem je množina založených identických projektů, pro každého uživatele jedna kopie. Pouze pro globální role s pokročilými možnostmi správy uživatelů.
 
+   \item[DO02 Serverová implementace snímků] 
+   Je třeba dokončit serverovou implementaci případů užití týkajících se plnění úkolů, vytváření smínků iterací a odevzdávání pro hodnocení. Realizace daných funkcionalit vykazovala v některých případech neočekávané chování, čím narušovala plynulou uživatelskou interakci. Uživatelské rozhraní je třeba upravit do finální podoby.
+
+   \item[DO03 Nepříznivé scénáře \gls{api} dotazů] 
+   Aplikace není propracovaná z hlediska ošetřování nepříznivých situací (například rozpoznání typu chyby požadavku). Je nutná realizace detailnějších návratových hodnot \gls{api} a ošetřování daných situací s vhodným doplněním uživatelského rozhraní (včetně odblokování již implementovaných případů užití na straně serveru).
+
    \item[DO02 Nové interpretátory částí obsahů a integrace se službami třetích stran]
    Interpretátory částí se vždy vážou na jeden určitý typ obsahu a jsou omezovány ukládáním informací pouze ve svém nebo serverovém úložišti. Pro rozšíření možností generování obsahu projektu je potřeba napsat víc typů interpretátorů (například zobrazování tabulek). V případně vhodných úprav životního cyklu rendrování obsahu je možné realizovat nahrávání či ukládání dat na vnější úložiště typu Google Drive, YouTube, Dropbox, Lucidchart a další.
 
@@ -25,12 +29,8 @@ Informační systém dle způsobů rozvoje lze rozdělit na dva hlavní směry -
    V případě rozvoje sytému a zvyšování počtu uživatelů je třeba postupně zlepšovat i \gls{ux} klienta. To bude možné po implementaci skriptů pro sbírání statistik. Na základě jejich výsledků lze provést potřebné změny.
    
    \item[DO04 Optimalizace stávajícího systému]
-   Vzhledem k nedokonalosti stávající implementace je potřeba provést optimalizaci některých funkcionalit. Mezi již známá slabá místa patří odesílání všech výsledků vyhledávání jedním souborem, absence automatického obnovování \gls{jwt} po vypršení doby platnosti, \dots
+   Vzhledem k nedokonalosti stávající implementace je potřeba provést optimalizaci některých funkcionalit. Mezi již známá slabá místa patří odesílání všech výsledků vyhledávání jedním souborem a absence automatického obnovování \gls{jwt} po vypršení doby platnosti.
    
-   \todo{Přidat další vzniklé implementační problémy}
-
-   %V případě zaměření aplikace na \gls{čvut} \gls{fit} a integrace s existujícími službami lze systém doplnit o následující funkcionality:
-
    \item[FIT00 Integrace CVUT OAuth 2.0 serveru]
    Aplikace již počítá s integrováním jiných autorizačních serverů. V serverové části stačí přidat novou PassportJS strategii s vhodnou konfigurací pro přesměrování na autorizační server a realizovat mapování dat z odpovědi na databázi. Z hlediska uživatelského rozhraní je třeba přidat pouze jedno autorizační tlačítko. V případě potřeby využití \texttt{access token} autorizačního serveru bude potřeba rozšířit databázi a vyřešit ukládání a obnovování \texttt{access token} a \texttt{refresh token}.
 

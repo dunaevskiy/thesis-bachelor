@@ -1,0 +1,23 @@
+# Akceptacni testy
+
+1. f
+
+**Pokrytí UC:**
+00, 01, 
+
+**Předpoklad:** 
+Existují uživatelé X (s rolí administrátor) a Y.
+
+**Scénář:**
+1. f
+
+
+
+**Pokrytí UC:**
+
+
+**Scénář:**
+1. Uživatel se přihlásí do systému.
+2. Klikne na tlačítko založit projekt.
+
+

@@ -40,180 +40,162 @@ Případ užití neboli \gls{uc} je činnost, k vykonávání které dochází z
 
 
 \begin{dlnar}
-   \item[FR02] \textbf{Globální role}
+   \item[FR01] \textbf{Globální role}
 
    \begin{dlnar}
       \item[UC01] 
       \texttt{administrator} může měnit roli uživatele. 
-
-      \item[UC02] 
-      \texttt{administrator} může přidávat nové role a upravovat oprávnění. 
-
-      \item[UC03]
-      \texttt{administrator} může upravovat oprávnění jednotlivých rolí.
-
-      \item[UC04] 
-      \texttt{administrator} může upravovat důvěryhodnost jednotlivých rolí.
    \end{dlnar}
 \end{dlnar}
 
 
 \begin{dlnar}
-   \item[FR03] \textbf{Osobní informace uživatelů}
+   \item[FR02] \textbf{Osobní informace uživatelů}
  
    \begin{dlnar}
-      \item[UC05] 
+      \item[UC02] 
       Jakýkoliv účastník \gls{is} může prohlédnout svoje osobní informace. 
 
-      \item[UC06] 
+      \item[UC03] 
       Jakýkoliv účastník \gls{is} může odstranit svůj účet.
    \end{dlnar}
 \end{dlnar}
 
 
 \begin{dlnar}
-   \item[FR04] \textbf{Upozornění}
+   \item[FR03] \textbf{Upozornění}
  
    \begin{dlnar}
-      \item[UC07] 
+      \item[UC04] 
       \texttt{user} může zobrazit, upravit stav nebo odstranit svoje upozornění.
    \end{dlnar}
 \end{dlnar}
 
 
 \begin{dlnar}
-   \item[FR05] \textbf{Projekt -- Životní cyklus}
+   \item[FR04] \textbf{Projekt -- Životní cyklus}
    
    \begin{dlnar}
-      \item[UC08]
+      \item[UC05]
       \texttt{user} může založit projekt. 
 
-      \item[UC09]
+      \item[UC06]
       \texttt{user} s projektovou rolí \texttt{leader} může odstranit projekt. 
 
-      \item[UC10]
+      \item[UC07]
       \texttt{user} s projektovou rolí \texttt{leader} může nastavit stav archivace.
    \end{dlnar}
 \end{dlnar}
 
 
 \begin{dlnar}
-   \item[FR06] \textbf{Projekt -- Správa dat}
+   \item[FR05] \textbf{Projekt -- Správa dat}
    
    \begin{dlnar}
-      \item[UC11]
+      \item[UC08]
       \texttt{user} s projektovou rolí \texttt{leader} může upravit veřejné informace a interní popis projektu.
    \end{dlnar}
 \end{dlnar}
 
 
 \begin{dlnar}
-   \item[FR07] \textbf{Projekt -- Kategorie a tagy}
+   \item[FR06] \textbf{Projekt -- Kategorie a tagy}
  
    \begin{dlnar}
-      \item[UC12]
+      \item[UC09]
       \texttt{user} s projektovou rolí \texttt{leader} může přidávat, upravovat a odstranovat tagy projektu. 
 
-      \item[UC13]
-      \texttt{authority} může zakládat kategorie. 
-
-      \item[UC14]
-      \texttt{authority} může upravovat kategorie. 
-
-      \item[UC15]
-      \texttt{administrator} může odstraňovat kategorie, pokud neobsahuje ani jeden projekt.
+      \item[UC10]
+      \texttt{authority} může zakládat, upravovat a odstranovat kategorie, pokud neobsahuje ani jeden projekt. 
    \end{dlnar}
 \end{dlnar}
 
 
 \begin{dlnar}
-   \item[FR08] \textbf{Projekt -- Tým a role}
+   \item[FR07] \textbf{Projekt -- Tým a role}
  
    \begin{dlnar}
 
-      \item[UC16] 
+      \item[UC11] 
       \texttt{user} s projektovou rolí \texttt{leader} může přidávat, upravovat a odstraňovat projektové role typu \texttt{contributor}.
 
-      \item[UC17]
+      \item[UC12]
       \texttt{authority} s projektovou rolí \texttt{leader} může přidávat uživatelé do týmu.
 
-      \item[UC18] 
+      \item[UC13] 
       \texttt{user} s projektovou rolí \texttt{leader} může měnit projektovou roli uživatele.
 
-      \item[UC19]
+      \item[UC14]
       \texttt{user} s projektovou rolí \texttt{leader} může odstraňovat uživatelé z týmu.
 
-      \item[UC20] 
-      \texttt{user} s projektovou rolí \texttt{leader} může povolovat nebo zakazovat volné přihlášení do projektové role \texttt{visitor}.
+      \item[UC15] 
+      \texttt{user} s projektovou rolí \texttt{leader} může povolovat nebo zakazovat volné přihlášení do projektové role \texttt{visitor} a rolí typu \texttt{contributor}.
 
-      \item[UC21] 
-      \texttt{user} s projektovou rolí \texttt{leader} může povolovat nebo zakazovat volné přihlášení do projektových rolí typu \texttt{contributor}.
-
-      \item[UC22]
+      \item[UC16]
       \texttt{user} se může hlásit na vakantní místo.
    \end{dlnar}
 \end{dlnar}
 
 
 \begin{dlnar}
-   \item[FR09] \textbf{Projekt -- Vyhledávání}
+   \item[FR08] \textbf{Projekt -- Vyhledávání}
    
    \begin{dlnar}
-      \item[UC23] 
+      \item[UC17] 
       \texttt{user} může vyhledat projekt, pokud je projekt zařazen do seznamu pro vyhledávání.
 
-      \item[UC24]
+      \item[UC18]
       \texttt{user} s projektovou rolí \texttt{leader} může přidávat nebo odebírat projekt ze~seznamu pro vyhledávání.
    \end{dlnar}
 \end{dlnar}
 
 
 \begin{dlnar}
-   \item[FR10] \textbf{Projekt -- Iterace a úkoly}
+   \item[FR09] \textbf{Projekt -- Iterace a úkoly}
    
    \begin{dlnar}
-      \item[UC25] 
+      \item[UC19] 
       \texttt{user} s projektovou rolí \texttt{leader} může přidávat, upravovat a odstraňovat iterace a úkoly.
    \end{dlnar}
 \end{dlnar}
 
 
 \begin{dlnar}
-   \item[FR11] \textbf{Projekt -- Správa obsahu}
+   \item[FR10] \textbf{Projekt -- Správa obsahu}
  
    \begin{dlnar}
-      \item[UC26] 
+      \item[UC20] 
+      \texttt{user} s projektovou rolí \texttt{contributor} může přiřazovat části obsahů úkolům.
+
+      \item[UC21] 
       \texttt{user} s projektovou rolí \texttt{contributor} může zakládat, upravovat a odstraňovat části v obsahu. 
 
-      \item[UC27] 
+      \item[UC22] 
       \texttt{user} s projektovou rolí \texttt{visitor} může zobrazit obsah.
-
-      \item[UC28] 
-      \texttt{user} s projektovou rolí \texttt{visitor} může zobrazit obsah pro tisk.
    \end{dlnar}
 \end{dlnar}
 
 
 \begin{dlnar}
-   \item[FR12] \textbf{Projekt -- Snímky iterací}
+   \item[FR11] \textbf{Projekt -- Snímky iterací}
  
    \begin{dlnar}
-      \item[UC29]
+      \item[UC23]
       \texttt{user} s projektovou rolí \texttt{contributor} projektu může vytvořit snímek.
 
-      \item[UC30] 
+      \item[UC24] 
       \texttt{user} s projektovou rolí \texttt{visitor} projektu může zobrazit snímek.
 
-      \item[UC31] 
+      \item[UC25] 
       \texttt{user} s projektovou rolí \texttt{contributor} projektu může odevzdat snímek.
 
-      \item[UC32]
+      \item[UC26]
       \texttt{authority} s projektovou rolí \texttt{leader} může ohodnotit snímek, pokud je odevzdaný.
       
-      \item[UC33]
+      \item[UC27]
       \texttt{authority} s projektovou rolí \texttt{leader} může změnit hodnocení snímku, pokud je jeho hodnotitelem.
 
-      \item[UC34]
+      \item[UC28]
       \texttt{user} s projektovou rolí \texttt{leader} může odstranit snímek, pokud nebyl ohodnocen.  
    \end{dlnar}
 \end{dlnar}
