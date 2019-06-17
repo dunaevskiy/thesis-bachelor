@@ -66,7 +66,9 @@ app.listen(3000);
    \caption{Příklad testované aplikace s využitím frameworku express}\label{listing:speed-test-wf}
 \end{fig:code}
 
-Alikace~\ref{listing:speed-test-wf} a obdobné realizace s pomocí jiných frameworků byly postupně spouštěny pro 10~000 požadavků s konkurencí 100 požadavků. Jako testovací zařízení byl použit Mac mini 2014:
+\newpage
+
+Aplikace se zdrojovým kódem~\ref{listing:speed-test-wf} a obdobné realizace s pomocí jiných frameworků byly postupně spouštěny pro 10~000 požadavků s konkurencí 100 požadavků. Jako testovací zařízení byl použit Mac mini 2014:
 
 \textbf{OS:} macOS Mojave 10.14.3\newline
 \textbf{Procesor:} 2.5 GHz Intel Core i5\newline
@@ -95,7 +97,7 @@ Pro první skupinu dat je víc vyhovující jedna z relačních databází, prot
 Zástupci vhodných \gls{oss} relačních databází se staly MySQL a PostgreSQL. Vzhledem k mnoha existujícím článkům srovnání databází samostatná analýza nebyla potřeba. Výsledkem výzkumu jednoho z takových článků byl závěr, že oba zástupci \gls{dbms} jsou stejně stabilní, ale PostgreSQL poskytuje navíc podporu některých \gls{nosql} funkcionalit~\cite{mysqlPostgres}. Volbou \gls{nosql} databáze dle subjektivních zkušeností se stala MongoDB.
 
 
-V průběhu implementace nastala potřeba definování dočasného úložiště pro výměnu autorizačních klíčů mezi serverem a klientem. Již zvolené databáze pro tento účel nebyly vhodnou volbou, protože by vznikla potřeba implementovat i démon pro automatické odstraňování předaných nebo nevalidních klíčů. Pro tento účel byla přidána další \gls{nosql} databáze Redis, která se zaměřuje na dočasné uchovávání dvojic klíč-hodnota.
+V průběhu implementace nastala potřeba definování dočasného úložiště pro výměnu autorizačních klíčů mezi serverem a klientem. Již zvolené databáze pro tento účel nebyly vhodnou volbou, protože by vznikla potřeba implementovat i démon pro automatické odstraňování předaných nebo nevalidních klíčů. Pro tento účel byla přidána další \gls{nosql} databáze Redis, která se zaměřuje na uchovávání dvojic klíč-hodnota.
 
 
 Všechny databáze, až na Redis nejsou napřímo využívány \gls{is}. Prostředníkem komunikace aplikace s PostgreSQL je knihovna TypeORM. Jedná se o \gls{orm} knihovnu, jejíž úkolem je mapování databázových entit a jejich relací na objekty. Zjednodušuje obecnou komunikaci s databází a poskytuje rozhraní bez nutnosti psaní SQL příkazů. Mimo jiné zabezpečuje systém vůči útoku typu \uv{SQL injection}. Obdobná knihovna mongoose, která vzhledem k databázi je typu \gls{odm}, je využívaná pro komunikaci s MongoDB.
@@ -112,7 +114,7 @@ Stejně jako v případě samotné aplikace je nutné verzovat i strukturu vybra
 
 \subsection{Adresářová struktura}
 
-Adresářová struktura serverové aplikace je uvedená ve výpisu (viz zdrojový kód~\ref{folders:server}). Představuje jednoduché rozdělení na funkční zdrojové kódy v adresáři \texttt{src} a testovací soubory v adresáři \texttt{test}, jež kopírují strukturu \texttt{src} za účelem přehlednosti testovacích souborů. Adresáře \texttt{logs} a \texttt{tmp} uchovávají dočasné soubory, které nemají vliv na funkčnost aplikace.
+Adresářová struktura serverové aplikace je uvedená ve výpisu (viz zdrojový kód~\ref{folders:server}). Představuje jednoduché rozdělení na funkční zdrojové kódy v adresáři \texttt{src} a testovací soubory v adresáři \texttt{test}, jež kopírují strukturu \texttt{src} za účelem přehlednosti testovacích souborů. Adresáře \texttt{logs} a \texttt{tmp} uchovávají dočasné soubory, které nemají vliv na~funkčnost aplikace.
 
 \begin{fig:code}
    \begin{minted}{text}
@@ -154,7 +156,7 @@ Komunikace mezi serverem a klientem informačního systému probíhá prostředn
 \end{dlnar}
 
 
-Pro generování odpovědi ze strany serveru je využívána šablona~\ref{response-template}. Položka \texttt{typ} označuje stav odpovědi -- úspěšná nebo neúspěšná --, \texttt{msg} obsahuje krátkou zprávu o výsledku prováděné činnosti, objekt \texttt{dat} nese v sobě užitečné informace, kvůli kterým byla volaná \gls{api} metoda. Tento typ odpovědi není optimální z hlediska přenášení zbytečnych dat, byl ale zvolen kvůli zvýšení informativnosti odpovědi. Pro dokumentování \gls{api} je vybrána aplikace Postman, exportovaná dokumentace je uložena na přiložené médiu.
+Pro generování odpovědi ze strany serveru je využívána šablona~\ref{response-template}. Položka \texttt{typ} označuje stav odpovědi -- úspěšná nebo neúspěšná --, \texttt{msg} obsahuje krátkou zprávu o výsledku prováděné činnosti, objekt \texttt{dat} nese v sobě užitečné informace, kvůli kterým byla volaná \gls{api} metoda. Tento typ odpovědi není optimální z hlediska přenášení zbytečnych dat, byl ale zvolen kvůli zvýšení informativnosti odpovědi. Pro dokumentování \gls{api} je vybrána aplikace Postman, exportovaná dokumentace je uložena na přiloženém médiu.
 
 
 \begin{fig:code}
@@ -170,7 +172,7 @@ Pro generování odpovědi ze strany serveru je využívána šablona~\ref{respo
 
 
 
-Vzhledem k veřejnému API je zřejmé, že k serveru budou přistupovat různé domény, případně stejná doména, jako má server, ale s odlišným portem. V běžném prostředí dochází k blokování sdílení informací mezi různými doménami kvůli bezpečnosti. Dané omezené je kladeno mechanismem \gls{cors}.~\cite{corsActions}
+Vzhledem k veřejnému API je zřejmé, že k serveru budou přistupovat různé domény, případně stejná doména, jako má server, ale s odlišným portem. V běžném prostředí dochází k blokování sdílení informací mezi různými doménami kvůli bezpečnosti. Dané omezené je kladeno \gls{cors}.~\cite{corsActions}
 
 Pro povolení využití sdílení zdrojů je třeba na straně serveru nastavit speciální hlavičky, jež budou odesílány se všemi odpovědi na požadavky. Na serveru \gls{cors} řeší speciální middleware spouštěný před každým zpracováním požadavku od klienta. Příklad nastavení \gls{http} hlaviček je uveden v ukázce~\ref{listing:cors-access}.
 

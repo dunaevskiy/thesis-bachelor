@@ -17,18 +17,18 @@ Informační systém dle způsobů rozvoje lze rozdělit na dva hlavní směry -
    Založit povinné projekty hromadně -- definují se společné metainformace projektů a množina uživatelů. Výsledkem je množina založených identických projektů, pro každého uživatele jedna kopie. Pouze pro globální role s pokročilými možnostmi správy uživatelů.
 
    \item[DO02 Serverová implementace snímků] 
-   Je třeba dokončit serverovou implementaci případů užití týkajících se plnění úkolů, vytváření smínků iterací a odevzdávání pro hodnocení. Realizace daných funkcionalit vykazovala v některých případech neočekávané chování, čím narušovala plynulou uživatelskou interakci. Uživatelské rozhraní je třeba upravit do finální podoby.
+   Je třeba dokončit serverovou implementaci případů užití týkajících se plnění úkolů, vytváření snímků iterací a odevzdávání pro hodnocení. Realizace daných funkcionalit vykazovala v některých případech neočekávané chování, čím narušovala plynulou uživatelskou interakci. Uživatelské rozhraní je třeba upravit do finální podoby.
 
    \item[DO03 Nepříznivé scénáře \gls{api} dotazů] 
    Aplikace není propracovaná z hlediska ošetřování nepříznivých situací (například rozpoznání typu chyby požadavku). Je nutná realizace detailnějších návratových hodnot \gls{api} a ošetřování daných situací s vhodným doplněním uživatelského rozhraní (včetně odblokování již implementovaných případů užití na straně serveru).
 
-   \item[DO02 Nové interpretátory částí obsahů a integrace se službami třetích stran]
+   \item[DO04 Nové interpretátory částí obsahů a integrace se službami třetích stran]
    Interpretátory částí se vždy vážou na jeden určitý typ obsahu a jsou omezovány ukládáním informací pouze ve svém nebo serverovém úložišti. Pro rozšíření možností generování obsahu projektu je potřeba napsat víc typů interpretátorů (například zobrazování tabulek). V případně vhodných úprav životního cyklu rendrování obsahu je možné realizovat nahrávání či ukládání dat na vnější úložiště typu Google Drive, YouTube, Dropbox, Lucidchart a další.
 
-   \item[DO03 Analýza využití systému a aktualizace \gls{ux}]
-   V případě rozvoje sytému a zvyšování počtu uživatelů je třeba postupně zlepšovat i \gls{ux} klienta. To bude možné po implementaci skriptů pro sbírání statistik. Na základě jejich výsledků lze provést potřebné změny.
+   \item[DO05 Analýza využití systému a aktualizace \gls{ux}]
+   V případě rozvoje sytému a zvyšování počtu uživatelů je třeba postupně zlepšovat i \gls{ux} klienta. To bude možné po~implementaci skriptů pro sbírání statistik. Na základě jejich výsledků lze provést potřebné změny.
    
-   \item[DO04 Optimalizace stávajícího systému]
+   \item[DO06 Optimalizace stávajícího systému]
    Vzhledem k nedokonalosti stávající implementace je potřeba provést optimalizaci některých funkcionalit. Mezi již známá slabá místa patří odesílání všech výsledků vyhledávání jedním souborem a absence automatického obnovování \gls{jwt} po vypršení doby platnosti.
    
    \item[FIT00 Integrace CVUT OAuth 2.0 serveru]

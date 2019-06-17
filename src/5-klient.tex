@@ -26,6 +26,7 @@ Oblasti web-designu se týkají především dva pojmy -- \gls{ux} a \gls{ui}. \
 Dobrým příkladem z hlediska barevné palety je vizuální styl \gls{čvut}~\cite{cvutStyleGuide}. Základní barvou je zvolena modrá, jež v kombinací s formou lva se stává unikátní pro danou instituci. \gls{čvut} má i další, sekundární barvy, jež se mohou vyskytovat ve vizuálním zpracování materiálů univerzity, nebudou však s ní bezpodmínečně asociovány, pokud se použijí samostatně se stejnou formou (například bílý lev na zeleném pozadí).
 
 Pro vizuální stránku \gls{is} byla primární barvou vybrána studená neintenzivní modrá barva přecházející do tmavší šedé, ukázku dané barvy lze vidět na obrázku~\ref{pic:style-guide}. Spolu s bílou tvoří neutrální kombinaci vhodnou pro dlouhodobou práci. Rozhraní se proto snaží dodržovat především monochromatické prostředí, které v případě nutnosti vyvolání pozornosti používá komplementární barvy -- žlutou nebo oranžovou. Sekundárními barvami pro vedlejší prvky byly zvoleny červená, zelená, stříbrná a modrá. Využívají se především na zvýraznění existence možné činnosti -- například odeslat, vytvořit --, a informování o výsledku -- úspěch, chyba, varování či zdržení.
+\newpage
 
 Spolu s barvou je důležitá i forma od obecného rozvržení stránky až po formu jednotlivých elementů. V designu stránek pro cílové publikum zvyklé pro psaní \gls{ltr} jsou typické vzory F a Z~\cite{zfPatterns} uvedené na obrázku \ref{pic:dia-design-patterns}. Jedná se o obdobu zlatého řezu v umění. Informační systém se drží vzoru F, který je v tomto případě vhodnější z hlediska rychlosti poskytovaní užitečných informací.
 
@@ -87,6 +88,7 @@ Z daného výběru nástrojů vyplývá, že základním jazykem pro~realizaci k
 \subsection{Použité technologie}
 
 Kromě primárních frameworků zvolených během návrhu architektury pro dosažení potřebné funkcionality byly zvoleny následující nástroje a technologie:
+\newpage
 
 \begin{dl}
    \item [Jazyk popisu kaskádových stylů] Základní \gls{css} je příliš přímočarý pro popis složitějších struktur. Jeho náhradou se mohly stát jazyky \gls{scss}, \gls{less}, Stylus a další, jež přidávají do \gls{css} syntaxe logické struktury -- podmínky, cykly apod. Dle subjektivních zkušeností byl zvolen \gls{scss}.
@@ -184,6 +186,7 @@ Po načtení všech částí se generuje pole unikátních názvů interpretů, 
 Interpret v základní podobě (viz zdrojový kód~\ref{listing:interpret-js}) představuje samospouštěcí lambda funkci (tím je zajištěna ochrana vůči konfliktu globálních proměnných), jež má unikátní jméno a povinnou metodu \texttt{render}, která přijímá jako parametr \texttt{store} části obsahu a výsledkem poskytuje \gls{html} kód. Během načítání vytváří odkaz na svoje metody v globální proměnné prohlížeče \mintinline{javascript}{window.iterations.interpreters}, odkud jsou volány \gls{is}.
 
 Podobná struktura interpretu obsahu z hlediska rozšiřitelnosti je omezena pouze možnostmi jazyka JavaScript v prostředí prohlížeče. Kromě povinné metody \mintinline{javascript}{render();} je možné definovat podpůrné funkce, manipulovat s již existujícím obsahem stránky, přidávat knihovny třetích stran, vytvářet interaktivní grafy, 3D vizualizace a další funkcionalitu.
+\newpage
 
 Ve specifikaci správy obsahu \gls{is} je uveden požadavek pro návrh struktury, která by se dala rozšířit i pro komunikaci mezi jednotlivými částmi. To v daném případě lze realizovat úpravou cyklu generování obsahu. Po stažení potřebných věcí se rendering nebude provádět rovnou, před ním může být vytvářena například dočasná uživatelská databáze typu IndexedDB, která bude zprostředkovávat veškerou komunikaci. Samozřejmě bude nutné doplnit části i interprety o další povinné prvky.
 
@@ -192,7 +195,6 @@ Ve specifikaci správy obsahu \gls{is} je uveden požadavek pro návrh struktury
 % Uživatelské rozhraní
 % --------------------------------------------------------------------------------------------------
 
-\clearpage
 \section{Uživatelské rozhraní}
 
 Na základě předchozích rozhodnutí o architektuře aplikace a realizace jednotlivých funkcionalit je navrženo vyhovující rozhraní. Základním východiskem je koncept plochého designu\footnote{Běžnější je anglický výraz \uv{flat design}}, jenž se projevuje ve snaze o zobrazení ovládacích prvků v přehledné, zjednodušené formě a zároveň skrytí méně potřebných funkcionalit bez většího dopadu na komfortní ovládání aplikace. Byl preferován před ostatními styly, protože obvykle nevyžaduje žádné dodatečné prvky a může být plně popsán s využitím pouze \gls{css}, tudíž je nenáročný z datového hlediska.
