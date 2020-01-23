@@ -1,4 +1,4 @@
-# Thesis - Bachelor
+# Thesis - Bachelor (2020)
 
 ## Dependencies
 
